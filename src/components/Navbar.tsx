@@ -42,9 +42,12 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="hidden md:flex items-center gap-2">
-          <Button asChild>
-            <Link to="/contacto">Contáctanos</Link>
+        <div className="hidden md:flex items-center gap-3">
+          <a href="tel:+51999999999" className="text-sm font-medium text-muted-foreground hover:text-foreground flex items-center gap-1">
+            <Phone className="w-3.5 h-3.5" /> +51 999 999 999
+          </a>
+          <Button asChild variant="cta" size="sm">
+            <Link to="/contacto">Solicitar Cotización</Link>
           </Button>
         </div>
 
