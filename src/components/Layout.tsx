@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import WhatsAppButton from "./WhatsAppButton";
 import StickyCTA from "./StickyCTA";
+import CookieBanner from "./CookieBanner";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
@@ -12,6 +13,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <Footer />
       <WhatsAppButton />
       <StickyCTA />
+      <CookieBanner />
     </div>
   );
 };

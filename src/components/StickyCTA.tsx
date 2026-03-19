@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone } from "lucide-react";
+import { content } from "@/content/content";
 
 const StickyCTA = () => {
   const [visible, setVisible] = useState(false);
@@ -20,15 +21,15 @@ const StickyCTA = () => {
         <div className="flex items-center gap-3">
           <Phone className="w-5 h-5 text-primary" />
           <div>
-            <p className="text-sm font-semibold text-foreground">¿Necesitas una cotización?</p>
-            <p className="text-xs text-muted-foreground">Asesoría técnica gratuita · Respuesta en 24h</p>
+            <p className="text-sm font-semibold text-foreground">¿Necesitas una cotizacion?</p>
+            <p className="text-xs text-muted-foreground">Atencion comercial B2B para limpieza y desinfeccion industrial</p>
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <a href="tel:+51999999999" className="text-sm font-bold text-primary hidden md:block">+51 999 999 999</a>
+          <a href={content.contact.phoneHref} className="text-sm font-bold text-primary hidden md:block">{content.contact.phoneDisplay}</a>
           <Button asChild size="sm" variant="cta">
             <Link to="/contacto">
-              Solicitar Cotización <ArrowRight className="w-3 h-3 ml-1" />
+              Solicitar Cotizacion <ArrowRight className="w-3 h-3 ml-1" />
             </Link>
           </Button>
         </div>

@@ -1,10 +1,12 @@
 import { useParams, Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import ProductCard from "@/components/ProductCard";
+import Seo from "@/components/Seo";
 import { products } from "@/data/products";
 import { Button } from "@/components/ui/button";
 import { Download, MessageCircle, ChevronRight, Sparkles, Settings, Search } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { content } from "@/content/content";
 
 const tabs = ["Descripción", "Aplicaciones", "Especificaciones", "Seguridad"];
 
@@ -13,10 +15,18 @@ const ProductDetailPage = () => {
   const product = products.find((p) => p.slug === slug);
   const [activeTab, setActiveTab] = useState("Descripción");
   const [selectedPresentation, setSelectedPresentation] = useState(0);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
+  useEffect(() => {
+    setActiveTab("Descripción");
+    setSelectedPresentation(0);
+    setSelectedImageIndex(0);
+  }, [slug]);
 
   if (!product) {
     return (
       <Layout>
+        <Seo title="Producto no encontrado" noIndex />
         <div className="section-container py-20 text-center">
           <h1 className="text-2xl font-bold text-foreground">Producto no encontrado</h1>
           <Button asChild className="mt-4"><Link to="/productos">Volver al catálogo</Link></Button>
@@ -27,9 +37,62 @@ const ProductDetailPage = () => {
 
   const related = products.filter((p) => p.id !== product.id && p.industry.some((i) => product.industry.includes(i))).slice(0, 3);
   const benefitIcons = [Sparkles, Settings, Search];
+  const hasDirectTechnicalSheet = Boolean(product.technicalSheetUrl && /\.pdf($|\?)/i.test(product.technicalSheetUrl));
+  const galleryImages = product.galleryImages?.length
+    ? product.galleryImages
+    : [{ src: product.image, alt: product.name, fit: "cover" as const }];
+  const selectedGalleryImage = galleryImages[selectedImageIndex] ?? galleryImages[0];
+  const productJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.description,
+    category: product.type,
+    image: galleryImages.map((image) => image.src),
+    brand: {
+      "@type": "Brand",
+      name: content.company.name,
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: content.company.legalName,
+    },
+  };
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: content.seo.siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Productos",
+        item: `${content.seo.siteUrl}/productos`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: product.name,
+        item: `${content.seo.siteUrl}/productos/${product.slug}`,
+      },
+    ],
+  };
 
   return (
     <Layout>
+      <Seo
+        title={`${product.name} | ${product.line}`}
+        description={product.shortDescription}
+        path={`/productos/${product.slug}`}
+        image={product.image}
+        jsonLd={[productJsonLd, breadcrumbJsonLd]}
+      />
+
       {/* Breadcrumb */}
       <div className="section-container py-4">
         <div className="flex items-center gap-1 text-sm text-muted-foreground">
@@ -44,8 +107,40 @@ const ProductDetailPage = () => {
       {/* Product */}
       <div className="section-container pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div className="bg-muted rounded-lg overflow-hidden aspect-square">
-            <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+          <div>
+            <div className={`overflow-hidden rounded-[1.75rem] border border-border/70 bg-muted aspect-[16/9] ${selectedGalleryImage.fit === "contain" ? "p-5 md:p-6" : ""}`}>
+              <img
+                src={selectedGalleryImage.src}
+                alt={selectedGalleryImage.alt}
+                className={`h-full w-full ${selectedGalleryImage.fit === "contain" ? "object-contain" : "object-cover"}`}
+              />
+            </div>
+
+            {galleryImages.length > 1 && (
+              <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {galleryImages.map((image, index) => (
+                  <button
+                    key={`${image.src}-${index}`}
+                    type="button"
+                    onClick={() => setSelectedImageIndex(index)}
+                    className={`overflow-hidden rounded-2xl border bg-muted transition-all ${
+                      selectedImageIndex === index
+                        ? "border-primary ring-2 ring-primary/20"
+                        : "border-border/70 hover:border-primary/35"
+                    }`}
+                    aria-label={`Ver imagen ${index + 1} de ${product.name}`}
+                  >
+                    <div className={`aspect-[4/3] ${image.fit === "contain" ? "p-3" : ""}`}>
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className={`h-full w-full ${image.fit === "contain" ? "object-contain" : "object-cover"}`}
+                      />
+                    </div>
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           <div>
@@ -82,11 +177,28 @@ const ProductDetailPage = () => {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              <Button size="lg" className="flex-1">
-                <Download className="w-4 h-4 mr-2" /> Descargar Ficha Técnica
-              </Button>
-              <Button size="lg" variant="outline" className="flex-1 border-accent text-accent hover:bg-accent hover:text-accent-foreground">
-                <MessageCircle className="w-4 h-4 mr-2" /> Solicitar Cotización
+              {hasDirectTechnicalSheet ? (
+                <Button asChild size="lg" className="flex-1">
+                  <a
+                    href={product.technicalSheetUrl ?? undefined}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
+                  >
+                    <Download className="w-4 h-4 mr-2" /> Descargar ficha técnica
+                  </a>
+                </Button>
+              ) : (
+                <Button asChild size="lg" className="flex-1">
+                  <Link to={product.technicalSheetUrl ?? "/contacto"}>
+                    <Download className="w-4 h-4 mr-2" /> Ver ficha técnica
+                  </Link>
+                </Button>
+              )}
+              <Button asChild size="lg" variant="outline" className="flex-1 border-accent text-accent hover:bg-accent hover:text-accent-foreground">
+                <Link to="/contacto">
+                  <MessageCircle className="w-4 h-4 mr-2" /> Solicitar Cotización
+                </Link>
               </Button>
             </div>
           </div>
@@ -190,11 +302,13 @@ const ProductDetailPage = () => {
       <section className="gradient-accent py-10">
         <div className="section-container flex flex-col md:flex-row items-center justify-between gap-4">
           <div>
-            <h3 className="text-xl font-bold text-accent-foreground">¿Necesitas asesoría técnica?</h3>
-            <p className="text-accent-foreground/80">Nuestro equipo te ayudará a elegir el producto ideal para tu industria.</p>
+            <h3 className="text-xl font-bold text-accent-foreground">¿Necesitas asesoria tecnica?</h3>
+            <p className="text-accent-foreground/80">Nuestro equipo puede orientar la seleccion del producto para tu operacion.</p>
           </div>
-          <Button size="lg" variant="outline" className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground/10">
-            <MessageCircle className="w-4 h-4 mr-2" /> Contáctanos Ahora
+          <Button asChild size="lg" variant="outline" className="border-accent-foreground text-accent-foreground hover:bg-accent-foreground/10">
+            <Link to="/contacto">
+              <MessageCircle className="w-4 h-4 mr-2" /> Contáctanos Ahora
+            </Link>
           </Button>
         </div>
       </section>

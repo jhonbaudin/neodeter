@@ -1,44 +1,105 @@
+import { FileCheck, Factory, FlaskConical, Leaf, ShieldCheck, Users } from "lucide-react";
 import Layout from "@/components/Layout";
 import PageBanner from "@/components/PageBanner";
-import { ShieldCheck, Leaf, FlaskConical, Award, FileCheck, Recycle } from "lucide-react";
+import Seo from "@/components/Seo";
+import { Button } from "@/components/ui/button";
+import { content } from "@/content/content";
 
-const certifications = [
-  { icon: ShieldCheck, title: "ISO 9001:2015", desc: "Sistema de gestión de calidad certificado, asegurando procesos estandarizados y mejora continua en todas nuestras operaciones." },
-  { icon: FlaskConical, title: "ISO 14001:2015", desc: "Gestión ambiental certificada, minimizando el impacto de nuestras operaciones en el medio ambiente." },
-  { icon: Award, title: "NSF International", desc: "Productos registrados y aprobados para uso en la industria alimentaria bajo los estándares más exigentes." },
-  { icon: FileCheck, title: "HACCP", desc: "Cumplimiento de análisis de peligros y puntos críticos de control para productos de grado alimentario." },
-  { icon: Leaf, title: "Compromiso Ambiental", desc: "Formulaciones biodegradables y procesos de producción sostenibles que reducen la huella ecológica." },
-  { icon: Recycle, title: "Envases Reciclables", desc: "Programa de reciclaje de envases y reducción de residuos plásticos en nuestra cadena de suministro." },
+const qualityBlocks = [
+  {
+    icon: ShieldCheck,
+    title: "Control de calidad",
+    description:
+      "Trabajamos con control de calidad constante en formulación, producción y entrega para sostener un servicio confiable.",
+  },
+  {
+    icon: FlaskConical,
+    title: "Documentación técnica",
+    description:
+      "Ponemos a disposición respaldo técnico y comercial para facilitar la evaluación de cada línea de producto.",
+  },
+  {
+    icon: Users,
+    title: "Asesoría especializada",
+    description:
+      "La recomendación del producto se apoya en acompañamiento técnico y en el entendimiento de cada proceso operativo.",
+  },
+  {
+    icon: Leaf,
+    title: "Enfoque ambiental",
+    description:
+      "Mantenemos un compromiso activo con formulaciones y prácticas alineadas con el cuidado del entorno.",
+  },
+  {
+    icon: Factory,
+    title: "Fabricación local",
+    description:
+      "La producción en Perú y la cercanía comercial nos permiten responder con mayor rapidez a cada cliente.",
+  },
+  {
+    icon: FileCheck,
+    title: "Respaldo documental",
+    description:
+      "Esta sección está orientada a reunir fichas, hojas de seguridad y respaldos documentales de cada solución.",
+  },
 ];
 
 const CertificationsPage = () => {
   return (
     <Layout>
-      <PageBanner title="Certificaciones" subtitle="Comprometidos con los más altos estándares de calidad y seguridad." />
+      <Seo
+        title="Calidad, respaldo y documentación técnica"
+        description="Conoce el enfoque de Neo Deter del Perú en control de calidad, respaldo documental y acompañamiento técnico para operaciones B2B."
+        path="/certificaciones"
+      />
+
+      <PageBanner
+        title="Certificaciones y respaldo"
+        subtitle="Compromiso con la calidad, la documentación técnica y el respaldo comercial para distintas operaciones industriales."
+      />
 
       <div className="section-container py-12">
-        <h2 className="text-2xl font-bold text-foreground mb-2">Estándares de Calidad</h2>
-        <p className="text-muted-foreground mb-8 max-w-2xl">
-          Nuestros productos y procesos están respaldados por certificaciones internacionales que garantizan la calidad, seguridad y responsabilidad ambiental.
-        </p>
+        <div className="mb-8 max-w-3xl">
+          <span className="section-label">Respaldo comercial</span>
+          <h2 className="mt-4 text-3xl font-bold text-foreground">
+            Calidad, soporte técnico y documentación para cada operación
+          </h2>
+          <p className="mt-4 text-muted-foreground leading-8">
+            Compartimos los criterios con los que abordamos calidad, soporte técnico y respaldo comercial
+            para acompañar a nuestros clientes en sus procesos de evaluación y compra.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {certifications.map((cert) => (
-            <div key={cert.title} className="bg-card rounded-lg border border-border p-6 shadow-card hover:shadow-card-hover transition-shadow">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <cert.icon className="w-6 h-6 text-primary" />
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {qualityBlocks.map((block) => (
+            <div key={block.title} className="surface-panel p-6">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/8">
+                <block.icon className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="font-bold text-foreground text-lg mb-2">{cert.title}</h3>
-              <p className="text-sm text-muted-foreground">{cert.desc}</p>
+              <h3 className="text-lg font-semibold text-foreground">{block.title}</h3>
+              <p className="mt-2 text-sm leading-7 text-muted-foreground">{block.description}</p>
             </div>
           ))}
         </div>
 
-        <section className="mt-16 gradient-primary rounded-lg p-8">
-          <h3 className="text-xl font-bold text-primary-foreground mb-3">Nuestro Compromiso</h3>
-          <p className="text-primary-foreground/80 max-w-2xl">
-            Mantenemos un programa de mejora continua que incluye auditorías internas y externas, capacitación del personal y actualización constante de nuestros procesos para cumplir con las normativas más exigentes del mercado.
-          </p>
+        <section className="mt-14 overflow-hidden rounded-[1.75rem] gradient-primary p-8 md:p-10">
+          <div className="grid gap-8 lg:grid-cols-[1fr,auto] lg:items-center">
+            <div className="rounded-[1.5rem] bg-slate-950/18 p-6 shadow-[0_24px_60px_-34px_rgba(5,20,38,0.72)] ring-1 ring-white/12 backdrop-blur-sm md:p-7">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
+                Soporte comercial
+              </p>
+              <h3 className="mt-3 text-3xl font-bold text-white">
+                Solicita fichas técnicas, hojas de seguridad o información de respaldo
+              </h3>
+              <p className="mt-4 max-w-2xl text-base leading-8 text-white">
+                Nuestro equipo puede orientarte y compartir la información necesaria para evaluar
+                la solución más adecuada para tu operación.
+              </p>
+            </div>
+            <Button asChild size="lg" variant="hero">
+              <a href={content.contact.emailHref}>Solicitar información</a>
+            </Button>
+          </div>
         </section>
       </div>
     </Layout>

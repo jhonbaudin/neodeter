@@ -1,327 +1,464 @@
-import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import Layout from "@/components/Layout";
-import ProductCard from "@/components/ProductCard";
-import { products } from "@/data/products";
-import {
-  Droplets, Factory, Hotel, Wrench, Award, Package, Building2, Send,
-  ShieldCheck, Clock, CheckCircle2, ArrowRight, Star, Phone, Zap,
-  TrendingUp, Users, MessageCircle
-} from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
-import industryLaundry from "@/assets/industry-laundry.jpg";
-import industryFood from "@/assets/industry-food.jpg";
-import industryHotel from "@/assets/industry-hotel.jpg";
-import industryMaintenance from "@/assets/industry-maintenance.jpg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  Building2,
+  Clock,
+  Droplets,
+  Factory,
+  FlaskConical,
+  Hotel,
+  MapPin,
+  MessageCircle,
+  Package,
+  Phone,
+  Send,
+  ShieldCheck,
+  Sparkles,
+  Wrench,
+} from "lucide-react";
+import Layout from "@/components/Layout";
+import AutoImageSlider from "@/components/AutoImageSlider";
+import ProductCard from "@/components/ProductCard";
+import Seo from "@/components/Seo";
+import { Button } from "@/components/ui/button";
+import { companyHighlights, content } from "@/content/content";
+import { products } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
+import { buildInquiryMailto } from "@/lib/contact";
+import industryFood from "@/assets/sectors/food/food-processing.jpg";
+import industryLaundry from "@/assets/sectors/laundry/industrial-laundry.jpg";
+import laundryIndustrialMachines from "@/assets/sectors/laundry/laundry-industrial-machines.webp";
+import laundryCommercialLifestyle from "@/assets/sectors/laundry/laundry-commercial-lifestyle.webp";
+import industryMaintenance from "@/assets/sectors/maintenance/industrial-maintenance.jpg";
+import aquamaticLimon from "@/assets/products/neodeter/aquamatic-limon.jpg";
 
-const solutions = [
-  { title: "Lavandería Industrial", desc: "Detergentes especializados que reducen costos operativos hasta un 30%.", icon: Droplets, image: industryLaundry },
-  { title: "Industria Alimentaria", desc: "Productos de grado alimentario que cumplen con normas HACCP y BPM.", icon: Factory, image: industryFood },
-  { title: "Hoteles y Restaurantes", desc: "Soluciones que garantizan higiene impecable y reducen tiempos de limpieza.", icon: Hotel, image: industryHotel },
-  { title: "Mantenimiento Industrial", desc: "Desengrasantes de alto rendimiento para maquinaria pesada y pisos.", icon: Wrench, image: industryMaintenance },
-];
-
-const stats = [
-  { value: "+60", label: "Años en el Mercado", icon: Clock },
-  { value: "70+", label: "Productos Especializados", icon: Package },
-  { value: "100+", label: "Industrias Atendidas", icon: Building2 },
-  { value: "98%", label: "Clientes Satisfechos", icon: Star },
-];
-
-const trustLogos = [
-  "Alicorp", "Gloria", "Backus", "Sodexo", "Marriott", "San Fernando"
-];
-
-const testimonials = [
-  {
-    quote: "Desde que implementamos los productos de QuímicaPro, redujimos nuestros costos de limpieza en un 35% y mejoramos los estándares de higiene.",
-    author: "Carlos Méndez",
-    role: "Gerente de Operaciones",
-    company: "Lavandería Industrial del Sur",
+const solutionVisuals = {
+  "Lavandería Industrial": {
+    icon: Droplets,
+    images: [
+      { src: industryLaundry, alt: "Lavandería industrial" },
+      { src: laundryIndustrialMachines, alt: "Equipos de lavandería industrial" },
+    ],
   },
-  {
-    quote: "La asesoría técnica que nos brindaron fue clave para cumplir con las certificaciones HACCP en nuestra planta de alimentos.",
-    author: "María Fernández",
-    role: "Jefa de Calidad",
-    company: "Procesadora de Alimentos SAC",
+  "Lavandería Comercial": {
+    icon: Package,
+    images: [
+      { src: laundryCommercialLifestyle, alt: "Lavandería comercial" },
+      { src: aquamaticLimon, alt: "Aquamatic Limón" },
+    ],
   },
-  {
-    quote: "Excelente relación calidad-precio. Los desengrasantes industriales superaron nuestras expectativas en rendimiento.",
-    author: "Roberto Sánchez",
-    role: "Director de Mantenimiento",
-    company: "Metalúrgica Nacional",
+  "Alimentos, Hoteles y Restaurantes": {
+    icon: Hotel,
+    images: [{ src: industryFood, alt: "Alimentos, hoteles y restaurantes" }],
   },
+  "Mantenimiento Industrial": {
+    icon: Wrench,
+    images: [{ src: industryMaintenance, alt: "Mantenimiento industrial" }],
+  },
+} as const;
+
+const advantages = [
+  { icon: Clock, title: "Trayectoria comprobada", description: content.advantages[0] },
+  { icon: Factory, title: "Operacion local", description: content.advantages[1] },
+  { icon: FlaskConical, title: "Portafolio adaptable", description: content.advantages[2] },
+  { icon: ShieldCheck, title: "Respaldo tecnico", description: content.advantages[3] },
+  { icon: Sparkles, title: "Enfoque ambiental", description: content.advantages[4] },
+  { icon: Building2, title: "Control permanente", description: content.advantages[6] },
 ];
 
-const benefits = [
-  { icon: Zap, title: "Resultados inmediatos", desc: "Fórmulas de acción rápida que optimizan tiempos de limpieza." },
-  { icon: TrendingUp, title: "Reduce costos", desc: "Alta concentración que reduce el costo por uso hasta un 40%." },
-  { icon: ShieldCheck, title: "Certificaciones", desc: "Productos con certificaciones ISO, NSF y HACCP." },
-  { icon: Users, title: "Asesoría técnica", desc: "Equipo de especialistas disponible para tu industria." },
-];
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: content.company.legalName,
+  url: content.seo.siteUrl,
+  slogan: content.company.tagline,
+  description: content.company.description,
+  foundingDate: content.company.foundedDate,
+  telephone: content.contact.phoneDisplay,
+  email: content.contact.email,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      telephone: content.contact.phoneDisplay,
+      email: content.contact.email,
+      areaServed: "PE",
+      availableLanguage: "es",
+    },
+    ...content.contact.centralPhones.map((phone) => ({
+      "@type": "ContactPoint",
+      contactType: "sales",
+      telephone: phone.display,
+      email: content.contact.email,
+      areaServed: "PE",
+      availableLanguage: "es",
+    })),
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "PE",
+    addressLocality: "Lima",
+    streetAddress: content.contact.office.address,
+  },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: content.seo.siteName,
+  url: content.seo.siteUrl,
+  inLanguage: "es-PE",
+};
 
 const Index = () => {
   const { toast } = useToast();
-  const [form, setForm] = useState({ nombre: "", empresa: "", email: "", telefono: "", mensaje: "" });
+  const [form, setForm] = useState({
+    nombre: "",
+    empresa: "",
+    email: "",
+    telefono: "",
+    mensaje: "",
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({ title: "¡Consulta enviada!", description: "Un asesor técnico te contactará en menos de 24 horas." });
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
+    window.location.href = buildInquiryMailto(form, "Solicitud comercial desde neodeter.pe");
+    toast({
+      title: "Abriremos tu correo",
+      description: "Preparamos tu solicitud para que la envíes directamente al equipo comercial.",
+    });
     setForm({ nombre: "", empresa: "", email: "", telefono: "", mensaje: "" });
   };
 
   return (
     <Layout>
-      {/* Hero — Conversion focused */}
-      <section className="relative min-h-[600px] flex items-center">
-        <div className="absolute inset-0">
-          <img src={heroBg} alt="" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 gradient-primary opacity-85" />
-        </div>
-        <div className="relative section-container py-20">
-          <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-accent/20 backdrop-blur-sm border border-accent/30 text-accent-foreground px-4 py-1.5 rounded-full text-sm font-medium mb-6">
-              <ShieldCheck className="w-4 h-4" />
-              +60 años de experiencia · Certificados ISO 9001
-            </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-[1.1] mb-5">
-              Reduce costos de limpieza industrial hasta un{" "}
-              <span className="text-accent">40%</span>
-            </h1>
-            <p className="text-lg md:text-xl text-primary-foreground/85 mb-4 max-w-xl">
-              Detergentes y desinfectantes de alta concentración para lavanderías, industria alimentaria, hoteles y mantenimiento industrial.
-            </p>
-            <div className="flex items-center gap-4 text-primary-foreground/70 text-sm mb-8">
-              <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-accent" /> Asesoría gratuita</span>
-              <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-accent" /> Envío nacional</span>
-              <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4 text-accent" /> Ficha técnica</span>
-            </div>
-            <div className="flex flex-wrap gap-4">
-              <Button asChild size="xl" variant="hero">
-                <Link to="/contacto">
-                  Solicitar Cotización Gratis <ArrowRight className="w-5 h-5 ml-1" />
-                </Link>
-              </Button>
-              <Button asChild size="xl" variant="hero-outline">
-                <Link to="/productos">Ver Catálogo</Link>
-              </Button>
-            </div>
-            <p className="text-primary-foreground/50 text-xs mt-4">Respuesta en menos de 24 horas · Sin compromiso</p>
-          </div>
-        </div>
-      </section>
+      <Seo
+        title="Soluciones quimicas para limpieza y desinfeccion industrial"
+        description={content.seo.defaultDescription}
+        path="/"
+        jsonLd={[organizationJsonLd, websiteJsonLd]}
+      />
 
-      {/* Social Proof — Client Logos */}
-      <section className="py-8 border-b border-border bg-card">
-        <div className="section-container">
-          <p className="text-center text-xs font-medium text-muted-foreground uppercase tracking-wider mb-5">
-            Empresas que confían en nosotros
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-            {trustLogos.map((name) => (
-              <div key={name} className="text-muted-foreground/40 font-bold text-lg md:text-xl tracking-wide">
-                {name}
+      <section className="relative overflow-hidden border-b border-primary/10 gradient-primary">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,hsl(65_79%_46%_/_0.22),transparent_24%),radial-gradient(circle_at_78%_22%,hsl(83_68%_44%_/_0.16),transparent_28%)]" />
+        <div className="absolute left-[-6rem] top-20 h-56 w-56 rounded-full bg-white/8 blur-3xl" />
+        <div className="absolute bottom-[-5rem] right-[-3rem] h-64 w-64 rounded-full bg-accent/25 blur-3xl" />
+
+        <div className="relative section-container py-16 md:py-24">
+          <div className="grid items-center gap-12 lg:grid-cols-[1.15fr,0.85fr]">
+            <div className="max-w-3xl rounded-[2rem] border border-white/12 bg-[linear-gradient(180deg,rgba(4,24,54,0.34),rgba(4,24,54,0.14))] p-6 shadow-[0_28px_70px_-40px_rgba(0,0,0,0.4)] backdrop-blur-[2px] md:p-8">
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/24 bg-white/12 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/90 backdrop-blur-sm">
+                <Sparkles className="h-3.5 w-3.5" />
+                {content.company.tagline}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* Benefits — Value Proposition */}
-      <section className="py-16">
-        <div className="section-container">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              ¿Por qué elegir QuímicaPro?
-            </h2>
-            <p className="text-muted-foreground max-w-xl mx-auto">
-              Más de 60 años formulando productos que optimizan la operación de industrias en todo el país.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((b) => (
-              <div key={b.title} className="bg-card rounded-lg border border-border p-6 text-center shadow-card hover:shadow-card-hover transition-all hover:-translate-y-1">
-                <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                  <b.icon className="w-6 h-6 text-accent" />
-                </div>
-                <h3 className="font-semibold text-foreground mb-2">{b.title}</h3>
-                <p className="text-sm text-muted-foreground">{b.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Soluciones por industria */}
-      <section className="py-16 bg-muted/50">
-        <div className="section-container">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Soluciones por Industria</h2>
-              <p className="text-muted-foreground">Productos especializados para cada sector productivo.</p>
-            </div>
-            <Button asChild variant="link" className="mt-2 md:mt-0">
-              <Link to="/industrias">Ver todas las industrias <ArrowRight className="w-4 h-4 ml-1" /></Link>
-            </Button>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {solutions.map((sol) => (
-              <Link key={sol.title} to="/industrias" className="group bg-card rounded-lg border border-border overflow-hidden shadow-card hover:shadow-card-hover transition-all hover:-translate-y-1">
-                <div className="aspect-video overflow-hidden relative">
-                  <img src={sol.image} alt={sol.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 to-transparent" />
-                </div>
-                <div className="p-4">
-                  <div className="flex items-center gap-2 mb-2">
-                    <sol.icon className="w-5 h-5 text-secondary" />
-                    <h3 className="font-semibold text-foreground">{sol.title}</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{sol.desc}</p>
-                  <span className="inline-flex items-center gap-1 text-sm text-primary font-medium mt-3 group-hover:gap-2 transition-all">
-                    Ver soluciones <ArrowRight className="w-3 h-3" />
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Productos Destacados */}
-      <section className="py-16">
-        <div className="section-container">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-2">Productos Destacados</h2>
-              <p className="text-muted-foreground">Nuestros productos de mayor demanda en el mercado industrial.</p>
-            </div>
-            <Button asChild variant="link" className="mt-2 md:mt-0">
-              <Link to="/productos">Ver catálogo completo <ArrowRight className="w-4 h-4 ml-1" /></Link>
-            </Button>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {products.slice(0, 3).map((p) => (
-              <ProductCard key={p.id} product={p} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials — Social Proof */}
-      <section className="py-16 bg-muted/50">
-        <div className="section-container">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
-              Lo que dicen nuestros clientes
-            </h2>
-            <p className="text-muted-foreground">Resultados reales de empresas que confían en nosotros.</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {testimonials.map((t) => (
-              <div key={t.author} className="bg-card rounded-lg border border-border p-6 shadow-card relative">
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-accent text-accent" />
-                  ))}
-                </div>
-                <blockquote className="text-foreground text-sm leading-relaxed mb-5">
-                  "{t.quote}"
-                </blockquote>
-                <div className="border-t border-border pt-4">
-                  <p className="font-semibold text-foreground text-sm">{t.author}</p>
-                  <p className="text-xs text-muted-foreground">{t.role}</p>
-                  <p className="text-xs text-primary font-medium">{t.company}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Stats + Experiencia */}
-      <section className="py-16">
-        <div className="section-container">
-          <div className="gradient-primary rounded-2xl p-8 md:p-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-primary-foreground text-center mb-8">
-              Respaldados por décadas de experiencia
-            </h2>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-              {stats.map((s) => (
-                <div key={s.label} className="text-center">
-                  <s.icon className="w-8 h-8 text-primary-foreground/60 mx-auto mb-2" />
-                  <div className="text-4xl md:text-5xl font-bold text-primary-foreground">{s.value}</div>
-                  <div className="text-sm text-primary-foreground/70 mt-1">{s.label}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA + Form — Main Conversion */}
-      <section className="py-16 bg-muted/50" id="cotizacion">
-        <div className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-                Solicita tu cotización sin compromiso
-              </h2>
-              <p className="text-muted-foreground mb-6">
-                Completa el formulario y un asesor técnico especializado te contactará en menos de 24 horas con una propuesta personalizada para tu industria.
+              <h1 className="max-w-3xl text-4xl font-bold leading-[1.02] text-white drop-shadow-[0_20px_44px_rgba(0,0,0,0.3)] md:text-6xl">
+                {content.hero.title}
+              </h1>
+              <p
+                className="mt-5 max-w-2xl text-lg leading-8 !text-white md:text-xl"
+                style={{ color: "rgba(255, 255, 255, 0.96)", textShadow: "0 8px 24px rgba(0, 0, 0, 0.2)" }}
+              >
+                {content.hero.subtitle}
               </p>
 
-              <div className="space-y-4 mb-8">
-                {[
-                  "Asesoría técnica personalizada y gratuita",
-                  "Cotización detallada con precios por volumen",
-                  "Fichas técnicas y hojas de seguridad incluidas",
-                  "Muestras gratuitas para evaluación",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
-                    <span className="text-foreground text-sm">{item}</span>
-                  </div>
+              <div className="mt-8 flex flex-wrap gap-3">
+                {content.productCategories.slice(0, 4).map((category) => (
+                  <Link
+                    key={category}
+                    to={`/productos?category=${encodeURIComponent(category)}`}
+                    className="rounded-full border border-white/32 bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-sm transition-all hover:border-white/60 hover:bg-white/18"
+                  >
+                    {category}
+                  </Link>
                 ))}
               </div>
 
-              <div className="flex items-center gap-3 p-4 bg-card rounded-lg border border-border">
-                <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center shrink-0">
-                  <Phone className="w-5 h-5 text-accent" />
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Button asChild size="xl" variant="hero">
+                  <Link to="/productos">
+                    {content.hero.ctaPrimary} <ArrowRight className="ml-1 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button asChild size="xl" variant="hero-outline">
+                  <Link to="/contacto">{content.hero.ctaSecondary}</Link>
+                </Button>
+              </div>
+            </div>
+
+            <div className="surface-panel relative overflow-hidden p-7 md:p-8">
+              <div className="absolute right-0 top-0 h-24 w-24 rounded-full bg-accent/15 blur-2xl" />
+              <div className="relative">
+                <div className="mb-6 flex items-start justify-between gap-4">
+                  <div>
+                    <p className="text-sm font-semibold uppercase tracking-[0.2em] text-primary">
+                      Perfil corporativo
+                    </p>
+                    <h2 className="mt-2 text-2xl font-bold text-foreground">
+                      {content.company.name}
+                    </h2>
+                  </div>
+                  <span className="rounded-full bg-primary/6 px-3 py-1 text-xs font-semibold text-primary">
+                    Desde {content.company.foundedYear}
+                  </span>
                 </div>
-                <div>
-                  <p className="text-sm font-medium text-foreground">¿Prefieres llamarnos?</p>
-                  <p className="text-lg font-bold text-primary">+51 999 999 999</p>
+
+                <p className="text-sm leading-7 text-muted-foreground">
+                  {content.company.summary}
+                </p>
+
+                <div className="mt-7 grid grid-cols-2 gap-4">
+                  {companyHighlights.map((highlight) => (
+                    <div key={highlight.label} className="rounded-2xl border border-border/70 bg-muted/55 p-4">
+                      <p className="text-2xl font-bold text-primary">{highlight.value}</p>
+                      <p className="mt-1 text-sm text-muted-foreground">{highlight.label}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-7 rounded-2xl border border-secondary/12 bg-secondary/8 p-5">
+                  <p className="text-sm font-semibold text-foreground">Cobertura de atencion</p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {content.industries.map((industry) => (
+                      <span
+                        key={industry}
+                        className="rounded-full bg-white px-3 py-1.5 text-xs font-medium text-muted-foreground shadow-sm"
+                      >
+                        {industry}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="section-container">
+          <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <span className="section-label">Por qué Neo Deter</span>
+              <h2 className="mt-4 text-3xl font-bold text-foreground">
+                Experiencia industrial, fabricación local y atención especializada
+              </h2>
+            </div>
+            <p className="max-w-xl text-muted-foreground">
+              Acompañamos a empresas que necesitan soluciones confiables para higiene,
+              desinfección, lavandería y mantenimiento en distintos entornos de operación.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {advantages.map((item) => (
+              <div key={item.title} className="surface-panel p-6 transition-transform hover:-translate-y-1 hover:shadow-card-hover">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/8">
+                  <item.icon className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground">{item.title}</h3>
+                <p className="mt-2 text-sm leading-7 text-muted-foreground">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="section-container">
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <span className="section-label">Lineas de solucion</span>
+              <h2 className="mt-4 text-3xl font-bold text-foreground">Sectores y aplicaciones prioritarias</h2>
+            </div>
+            <Button asChild variant="link" className="justify-start px-0 md:justify-end">
+              <Link to="/industrias">
+                Ver industrias <ArrowRight className="ml-1 h-4 w-4" />
+              </Link>
+            </Button>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {content.solutions.map((solution) => {
+              const visual = solutionVisuals[solution.name as keyof typeof solutionVisuals];
+
+              return (
+                <Link
+                  key={solution.name}
+                  to="/industrias"
+                  className="group overflow-hidden rounded-[1.75rem] border border-border/80 bg-card shadow-card transition-all hover:-translate-y-1 hover:shadow-card-hover"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <AutoImageSlider
+                      images={visual.images}
+                      imageClassName="transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-foreground/50 via-transparent to-transparent" />
+                  </div>
+                  <div className="p-5">
+                    <div className="mb-3 flex items-center gap-2">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-primary/8">
+                        <visual.icon className="h-5 w-5 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-semibold text-foreground">{solution.name}</h3>
+                    </div>
+                    <p className="text-sm leading-7 text-muted-foreground">{solution.description}</p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-primary transition-all group-hover:gap-2">
+                      Conocer enfoque <ArrowRight className="h-3.5 w-3.5" />
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 bg-muted/40">
+        <div className="section-container">
+          <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <span className="section-label">Soluciones destacadas</span>
+              <h2 className="mt-4 text-3xl font-bold text-foreground">Algunas referencias del portafolio</h2>
+            </div>
+            <p className="max-w-xl text-muted-foreground">
+              Explora algunas de las líneas de solución que hoy forman parte de la navegación del sitio.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {products.slice(0, 3).map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16">
+        <div className="section-container">
+          <div className="grid gap-8 xl:grid-cols-[0.85fr,1.15fr]">
+            <div className="surface-panel p-8">
+              <span className="section-label">Cobertura y atención</span>
+              <h2 className="mt-4 text-3xl font-bold text-foreground">Atención comercial y puntos de contacto</h2>
+              <p className="mt-4 text-muted-foreground leading-7">
+                Estamos disponibles para atender consultas comerciales, coordinar asesoría técnica
+                y orientar la selección de soluciones según tu operación.
+              </p>
+
+              <div className="mt-8 space-y-4">
+                <div className="flex items-start gap-3 rounded-2xl border border-border/70 bg-muted/45 p-4">
+                  <Phone className="mt-1 h-5 w-5 text-primary" />
+                  <div>
+                    <p className="font-semibold text-foreground">Celular comercial y WhatsApp</p>
+                    <a href={content.contact.phoneHref} className="text-sm text-muted-foreground hover:text-foreground">
+                      {content.contact.phoneDisplay}
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 rounded-2xl border border-border/70 bg-muted/45 p-4">
+                  <Phone className="mt-1 h-5 w-5 text-primary" />
+                  <div>
+                    <p className="font-semibold text-foreground">Central comercial</p>
+                    <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+                      {content.contact.centralPhones.map((phone, index) => (
+                        <span key={phone.href} className="inline-flex items-center gap-2">
+                          <a href={phone.href} className="hover:text-foreground">
+                            {phone.display}
+                          </a>
+                          {index < content.contact.centralPhones.length - 1 ? <span>/</span> : null}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 rounded-2xl border border-border/70 bg-muted/45 p-4">
+                  <MapPin className="mt-1 h-5 w-5 text-primary" />
+                  <div>
+                    <p className="font-semibold text-foreground">{content.contact.office.label}</p>
+                    <p className="text-sm text-muted-foreground">{content.contact.office.address}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3 rounded-2xl border border-border/70 bg-muted/45 p-4">
+                  <MapPin className="mt-1 h-5 w-5 text-primary" />
+                  <div>
+                    <p className="font-semibold text-foreground">{content.contact.factory.label}</p>
+                    <p className="text-sm text-muted-foreground">{content.contact.factory.address}</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-card rounded-xl border border-border p-6 md:p-8 shadow-card-hover">
-              <div className="flex items-center gap-2 mb-1">
-                <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                <span className="text-xs font-medium text-accent">Respuesta en menos de 24h</span>
+            <div className="surface-panel p-8">
+              <div className="mb-6 flex items-center gap-2">
+                <div className="h-2 w-2 rounded-full bg-accent animate-pulse" />
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+                  Contacto comercial
+                </span>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-5">Solicitar Cotización</h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <h3 className="text-2xl font-bold text-foreground">Solicitar asesoria</h3>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                Déjanos tus datos y una breve descripción de tu necesidad para preparar mejor la atención comercial.
+              </p>
+
+              <form onSubmit={handleSubmit} className="mt-8 space-y-4">
                 <div>
-                  <input className="w-full px-4 py-3 rounded-md border border-input bg-background text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition" placeholder="Nombre completo *" value={form.nombre} onChange={(e) => setForm({ ...form, nombre: e.target.value })} required />
+                  <input
+                    className="w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10"
+                    placeholder="Nombre completo *"
+                    value={form.nombre}
+                    onChange={(event) => setForm({ ...form, nombre: event.target.value })}
+                    required
+                  />
                 </div>
                 <div>
-                  <input className="w-full px-4 py-3 rounded-md border border-input bg-background text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition" placeholder="Empresa *" value={form.empresa} onChange={(e) => setForm({ ...form, empresa: e.target.value })} required />
+                  <input
+                    className="w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10"
+                    placeholder="Empresa *"
+                    value={form.empresa}
+                    onChange={(event) => setForm({ ...form, empresa: event.target.value })}
+                    required
+                  />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <input className="w-full px-4 py-3 rounded-md border border-input bg-background text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition" type="email" placeholder="Email *" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required />
-                  <input className="w-full px-4 py-3 rounded-md border border-input bg-background text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition" type="tel" placeholder="Teléfono" value={form.telefono} onChange={(e) => setForm({ ...form, telefono: e.target.value })} />
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <input
+                    className="w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10"
+                    type="email"
+                    placeholder="Email *"
+                    value={form.email}
+                    onChange={(event) => setForm({ ...form, email: event.target.value })}
+                    required
+                  />
+                  <input
+                    className="w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10"
+                    type="tel"
+                    placeholder="Telefono"
+                    value={form.telefono}
+                    onChange={(event) => setForm({ ...form, telefono: event.target.value })}
+                  />
                 </div>
                 <div>
-                  <textarea className="w-full px-4 py-3 rounded-md border border-input bg-background text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none transition" rows={3} placeholder="¿Qué productos necesitas? ¿Para qué industria?" value={form.mensaje} onChange={(e) => setForm({ ...form, mensaje: e.target.value })} />
+                  <textarea
+                    className="w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10"
+                    rows={4}
+                    placeholder="Cuéntanos qué línea o industria te interesa."
+                    value={form.mensaje}
+                    onChange={(event) => setForm({ ...form, mensaje: event.target.value })}
+                  />
                 </div>
-                <Button type="submit" size="lg" variant="cta" className="w-full shadow-cta">
-                  <Send className="w-4 h-4 mr-2" /> Solicitar Cotización Gratis
-                </Button>
-                <p className="text-xs text-muted-foreground text-center">
-                  Sin compromiso · Tus datos están seguros
+
+                <div className="flex flex-wrap gap-3">
+                  <Button type="submit" size="lg" variant="cta" className="flex-1 min-w-[220px]">
+                    <Send className="mr-2 h-4 w-4" /> Enviar por correo
+                  </Button>
+                  <Button asChild size="lg" variant="outline" className="flex-1 min-w-[220px]">
+                    <a href={content.contact.whatsappHref} target="_blank" rel="noopener noreferrer">
+                      <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp
+                    </a>
+                  </Button>
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Al enviar, se abrirá tu correo con la consulta prellenada para que puedas revisarla antes de enviarla.
                 </p>
               </form>
             </div>
@@ -329,24 +466,25 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Final CTA Banner */}
-      <section className="gradient-accent py-12">
-        <div className="section-container text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-accent-foreground mb-3">
-            ¿Listo para optimizar tu limpieza industrial?
-          </h2>
-          <p className="text-accent-foreground/80 mb-6 max-w-lg mx-auto">
-            Únete a más de 100 empresas que ya redujeron sus costos con nuestras soluciones.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button asChild size="xl" variant="hero-outline" className="border-accent-foreground/40 text-accent-foreground hover:bg-accent-foreground/10">
+      <section className="py-14 gradient-accent">
+        <div className="section-container flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-accent-foreground/70">
+              Atención B2B
+            </p>
+            <h2 className="mt-2 text-3xl font-bold text-accent-foreground">
+              Conversemos sobre las necesidades de tu operación
+            </h2>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Button asChild size="lg" variant="hero-outline" className="border-accent-foreground/40 text-accent-foreground hover:bg-accent-foreground/10">
               <Link to="/contacto">
-                Solicitar Cotización <ArrowRight className="w-5 h-5 ml-1" />
+                Solicitar asesoria <ArrowRight className="ml-1 h-4 w-4" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="ghost" className="text-accent-foreground hover:bg-accent-foreground/10">
-              <a href="https://wa.me/51999999999" target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="w-5 h-5 mr-2" /> WhatsApp
+              <a href={content.contact.whatsappBaseHref} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="mr-2 h-4 w-4" /> WhatsApp
               </a>
             </Button>
           </div>

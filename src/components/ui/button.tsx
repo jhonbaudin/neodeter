@@ -11,13 +11,13 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        outline: "border border-input bg-background hover:border-primary/30 hover:bg-primary/5 hover:text-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
+        ghost: "hover:bg-primary/6 hover:text-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        cta: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-lg hover:shadow-xl transition-all font-semibold",
-        "cta-outline": "border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold",
-        hero: "gradient-accent text-accent-foreground shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all font-bold",
+        cta: "bg-accent text-accent-foreground hover:bg-accent/90 shadow-cta transition-all font-semibold",
+        "cta-outline": "border-2 border-accent text-accent-foreground hover:bg-accent hover:text-accent-foreground font-semibold",
+        hero: "gradient-accent text-accent-foreground shadow-cta hover:shadow-xl hover:scale-[1.02] transition-all font-bold",
         "hero-outline": "border-2 border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground/10 font-semibold backdrop-blur-sm",
       },
       size: {
@@ -49,4 +49,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 Button.displayName = "Button";
 
-export { Button, buttonVariants };
+export { Button };
