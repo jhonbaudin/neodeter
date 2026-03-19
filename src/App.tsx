@@ -1,7 +1,7 @@
 import { Toaster } from "@/components/ui/toaster";
 import ScrollToTop from "@/components/ScrollToTop";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Index from "./pages/Index";
 import ProductsPage from "./pages/ProductsPage";
 import ProductDetailPage from "./pages/ProductDetailPage";
@@ -20,6 +20,7 @@ const App = () => (
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/inicio" element={<Navigate to="/" replace />} />
         <Route path="/productos" element={<ProductsPage />} />
         <Route path="/productos/:slug" element={<ProductDetailPage />} />
         <Route path="/industrias" element={<IndustriesPage />} />
