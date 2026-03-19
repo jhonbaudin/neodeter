@@ -16,11 +16,12 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <Toaster />
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/inicio" element={<Navigate to="/" replace />} />
+        <Route path="/neodeter" element={<Navigate to="/" replace />} />
         <Route path="/productos" element={<ProductsPage />} />
         <Route path="/productos/:slug" element={<ProductDetailPage />} />
         <Route path="/industrias" element={<IndustriesPage />} />
