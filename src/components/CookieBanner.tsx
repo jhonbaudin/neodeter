@@ -20,10 +20,10 @@ const CookieBanner = () => {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-4 left-4 right-20 z-50 sm:right-4 md:left-6 md:right-auto md:max-w-xl lg:bottom-24">
-      <div className="surface-panel border-primary/10 p-5">
+    <div className="fixed bottom-3 left-1/2 z-50 w-[calc(100%-1.5rem)] max-w-sm -translate-x-1/2 sm:bottom-4 sm:max-w-md md:left-6 md:w-auto md:translate-x-0 lg:bottom-24">
+      <div className="surface-panel border-primary/10 p-4 sm:p-5">
         <p className="text-sm font-semibold text-foreground">Uso de cookies</p>
-        <p className="mt-2 text-sm leading-7 text-muted-foreground">
+        <p className="mt-2 text-sm leading-6 text-muted-foreground">
           {content.cookies.message}
         </p>
         <div className="mt-4 flex flex-wrap gap-3">

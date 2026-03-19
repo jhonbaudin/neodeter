@@ -148,9 +148,9 @@ const Index = () => {
         <div className="relative section-container py-16 md:py-24">
           <div className="grid items-center gap-12 lg:grid-cols-[1.15fr,0.85fr]">
             <div className="max-w-3xl rounded-[2rem] border border-white/12 bg-[linear-gradient(180deg,rgba(4,24,54,0.34),rgba(4,24,54,0.14))] p-6 shadow-[0_28px_70px_-40px_rgba(0,0,0,0.4)] backdrop-blur-[2px] md:p-8">
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/24 bg-white/12 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/90 backdrop-blur-sm">
+              <div className="mb-6 flex w-full max-w-full flex-wrap items-center gap-2 rounded-full border border-white/24 bg-white/12 px-4 py-2 text-[10px] font-semibold uppercase leading-relaxed tracking-[0.12em] text-white/90 backdrop-blur-sm sm:inline-flex sm:w-auto sm:text-[11px] sm:tracking-[0.22em]">
                 <Sparkles className="h-3.5 w-3.5" />
-                {content.company.tagline}
+                <span className="min-w-0 break-words whitespace-normal">{content.company.tagline}</span>
               </div>
 
               <h1 className="max-w-3xl text-4xl font-bold leading-[1.02] text-white drop-shadow-[0_20px_44px_rgba(0,0,0,0.3)] md:text-6xl">
