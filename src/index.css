@@ -79,11 +79,11 @@
   }
 
   .page-banner-title {
-    @apply text-3xl font-bold text-primary-foreground md:text-5xl;
+    @apply max-w-[11ch] text-[2rem] font-bold leading-tight text-primary-foreground sm:max-w-none sm:text-3xl md:text-5xl;
   }
 
   .page-banner-subtitle {
-    @apply mt-4 max-w-2xl text-base text-primary-foreground/80 md:text-lg;
+    @apply mt-4 max-w-[20rem] text-[15px] leading-7 text-primary-foreground/80 sm:max-w-2xl sm:text-base md:text-lg;
   }
 
   .section-label {

@@ -148,16 +148,16 @@ const Index = () => {
         <div className="relative section-container py-16 md:py-24">
           <div className="grid items-center gap-12 lg:grid-cols-[1.15fr,0.85fr]">
             <div className="max-w-3xl rounded-[2rem] border border-white/12 bg-[linear-gradient(180deg,rgba(4,24,54,0.34),rgba(4,24,54,0.14))] p-6 shadow-[0_28px_70px_-40px_rgba(0,0,0,0.4)] backdrop-blur-[2px] md:p-8">
-              <div className="mb-6 flex w-full max-w-full flex-wrap items-center gap-2 rounded-full border border-white/24 bg-white/12 px-4 py-2 text-[10px] font-semibold uppercase leading-relaxed tracking-[0.12em] text-white/90 backdrop-blur-sm sm:inline-flex sm:w-auto sm:text-[11px] sm:tracking-[0.22em]">
+              <div className="mb-6 flex w-full max-w-full flex-col items-start gap-1.5 rounded-[1.5rem] border border-white/24 bg-white/12 px-4 py-2 text-[10px] font-semibold uppercase leading-relaxed tracking-[0.12em] text-white/90 backdrop-blur-sm sm:inline-flex sm:w-auto sm:flex-row sm:items-center sm:gap-2 sm:rounded-full sm:text-[11px] sm:tracking-[0.22em]">
                 <Sparkles className="h-3.5 w-3.5" />
                 <span className="min-w-0 break-words whitespace-normal">{content.company.tagline}</span>
               </div>
 
-              <h1 className="max-w-3xl text-4xl font-bold leading-[1.02] text-white drop-shadow-[0_20px_44px_rgba(0,0,0,0.3)] md:text-6xl">
+              <h1 className="max-w-[10ch] text-[2.2rem] font-bold leading-[1.04] text-white drop-shadow-[0_20px_44px_rgba(0,0,0,0.3)] sm:max-w-3xl sm:text-4xl md:text-6xl">
                 {content.hero.title}
               </h1>
               <p
-                className="mt-5 max-w-2xl text-lg leading-8 !text-white md:text-xl"
+                className="mt-5 max-w-[18rem] text-base leading-7 !text-white sm:max-w-2xl sm:text-lg sm:leading-8 md:text-xl"
                 style={{ color: "rgba(255, 255, 255, 0.96)", textShadow: "0 8px 24px rgba(0, 0, 0, 0.2)" }}
               >
                 {content.hero.subtitle}
