@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { ChevronDown, Search } from "lucide-react";
 import Layout from "@/components/Layout";
 import PageBanner from "@/components/PageBanner";
 import ProductCard from "@/components/ProductCard";
@@ -39,22 +40,36 @@ const marketingCategoryMatchers: Record<string, (product: Product) => boolean> =
     ),
 };
 
+const productNameCollator = new Intl.Collator("es", { sensitivity: "base" });
+
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
-  const [selectedCategory, setSelectedCategory] = useState<string[]>([]);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedLine, setSelectedLine] = useState<string[]>([]);
   const [selectedType, setSelectedType] = useState<string[]>([]);
   const [selectedIndustry, setSelectedIndustry] = useState<string[]>([]);
   const [selectedPresentation, setSelectedPresentation] = useState<string[]>([]);
+  const [searchText, setSearchText] = useState("");
+  const [sortOrder, setSortOrder] = useState<"az" | "za">("az");
 
   const toggle = (values: string[], value: string, setter: (next: string[]) => void) => {
     setter(values.includes(value) ? values.filter((item) => item !== value) : [...values, value]);
   };
 
+  const toggleQuickCategory = (value: string) => {
+    setSelectedCategory((current) => (current === value ? null : value));
+  };
+
+  const normalizeText = (value: string) =>
+    value
+      .normalize("NFD")
+      .replace(/\p{Diacritic}/gu, "")
+      .toLowerCase();
+
   useEffect(() => {
-    const quickCategories = searchParams
+    const quickCategory = searchParams
       .getAll("category")
-      .filter((value) =>
+      .find((value) =>
         content.productCategories.includes(
           value as (typeof content.productCategories)[number],
         ),
@@ -63,17 +78,22 @@ const ProductsPage = () => {
       .getAll("industry")
       .filter((value) => industries.includes(value));
 
-    setSelectedCategory(quickCategories);
+    setSelectedCategory(quickCategory ?? null);
     setSelectedIndustry(quickIndustries);
   }, [searchParams]);
 
   const filtered = useMemo(() => {
-    return products.filter((product) => {
+    const nextProducts = products.filter((product) => {
       if (
-        selectedCategory.length &&
-        !selectedCategory.some((category) => marketingCategoryMatchers[category]?.(product))
+        selectedCategory &&
+        !marketingCategoryMatchers[selectedCategory]?.(product)
       ) {
         return false;
+      }
+      if (searchText) {
+        const normalizedProductName = normalizeText(product.name);
+        const normalizedSearch = normalizeText(searchText);
+        if (!normalizedProductName.includes(normalizedSearch)) return false;
       }
       if (selectedLine.length && !selectedLine.includes(product.line)) return false;
       if (selectedType.length && !selectedType.includes(product.type)) return false;
@@ -81,14 +101,22 @@ const ProductsPage = () => {
       if (selectedPresentation.length && !selectedPresentation.some((item) => product.presentations.includes(item))) return false;
       return true;
     });
-  }, [selectedCategory, selectedIndustry, selectedLine, selectedPresentation, selectedType]);
+
+    nextProducts.sort((firstProduct, secondProduct) => {
+      const comparison = productNameCollator.compare(firstProduct.name, secondProduct.name);
+      return sortOrder === "az" ? comparison : -comparison;
+    });
+
+    return nextProducts;
+  }, [searchText, selectedCategory, selectedIndustry, selectedLine, selectedPresentation, selectedType, sortOrder]);
 
   const clearFilters = () => {
-    setSelectedCategory([]);
+    setSelectedCategory(null);
     setSelectedLine([]);
     setSelectedType([]);
     setSelectedIndustry([]);
     setSelectedPresentation([]);
+    setSearchText("");
   };
 
   const FilterSection = ({
@@ -102,9 +130,19 @@ const ProductsPage = () => {
     selected: string[];
     setter: (value: string[]) => void;
   }) => (
-    <div className="mb-6">
-      <h4 className="mb-3 text-sm font-semibold text-foreground">{title}</h4>
-      <div className="space-y-2">
+    <details className="group mb-4 rounded-2xl border border-border/70 bg-muted/35 px-4 py-3">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-3 [&::-webkit-details-marker]:hidden">
+        <div>
+          <h4 className="text-sm font-semibold text-foreground">{title}</h4>
+          {selected.length > 0 && (
+            <p className="mt-1 text-xs text-muted-foreground">
+              {selected.length} seleccionado{selected.length > 1 ? "s" : ""}
+            </p>
+          )}
+        </div>
+        <ChevronDown className="h-4 w-4 text-muted-foreground transition-transform group-open:rotate-180" />
+      </summary>
+      <div className="mt-4 space-y-2 border-t border-border/60 pt-4">
         {options.map((option) => (
           <label
             key={option}
@@ -120,7 +158,7 @@ const ProductsPage = () => {
           </label>
         ))}
       </div>
-    </div>
+    </details>
   );
 
   return (
@@ -148,10 +186,11 @@ const ProductsPage = () => {
               <button
                 key={category}
                 type="button"
-                onClick={() => toggle(selectedCategory, category, setSelectedCategory)}
+                aria-pressed={selectedCategory === category}
+                onClick={() => toggleQuickCategory(category)}
                 className={cn(
                   "rounded-full border px-4 py-2 text-sm font-semibold transition-all",
-                  selectedCategory.includes(category)
+                  selectedCategory === category
                     ? "border-primary bg-primary text-primary-foreground shadow-card"
                     : "border-border bg-card text-muted-foreground shadow-sm hover:border-primary/30 hover:bg-primary/5 hover:text-foreground",
                 )}
@@ -166,6 +205,22 @@ const ProductsPage = () => {
           <aside className="shrink-0 lg:w-72">
             <div className="surface-panel sticky top-24 p-6">
               <h3 className="mb-4 text-lg font-bold text-foreground">Filtrar productos</h3>
+              <div className="mb-6">
+                <label htmlFor="product-search" className="mb-2 block text-sm font-semibold text-foreground">
+                  Buscar por nombre
+                </label>
+                <div className="relative">
+                  <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+                  <input
+                    id="product-search"
+                    type="search"
+                    value={searchText}
+                    onChange={(event) => setSearchText(event.target.value)}
+                    placeholder="Ej. NEOCLOR DX PLUS"
+                    className="w-full rounded-2xl border border-input bg-background py-3 pl-10 pr-4 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10"
+                  />
+                </div>
+              </div>
               <FilterSection title="Línea" options={productLines} selected={selectedLine} setter={setSelectedLine} />
               <FilterSection title="Tipo" options={productTypes} selected={selectedType} setter={setSelectedType} />
               <FilterSection title="Industria" options={industries} selected={selectedIndustry} setter={setSelectedIndustry} />
@@ -182,9 +237,25 @@ const ProductsPage = () => {
           </aside>
 
           <div className="flex-1">
-            <div className="mb-6 flex items-center justify-between gap-4">
-              <h2 className="text-2xl font-bold text-foreground">Catálogo de productos</h2>
-              <span className="text-sm text-muted-foreground">{filtered.length} productos</span>
+            <div className="mb-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div>
+                <h2 className="text-2xl font-bold text-foreground">Catálogo de productos</h2>
+                <span className="text-sm text-muted-foreground">{filtered.length} productos</span>
+              </div>
+              <div className="w-full md:w-[250px]">
+                <label htmlFor="sort-products" className="mb-2 block text-sm font-semibold text-foreground">
+                  Ordenar por
+                </label>
+                <select
+                  id="sort-products"
+                  value={sortOrder}
+                  onChange={(event) => setSortOrder(event.target.value as "az" | "za")}
+                  className="w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10"
+                >
+                  <option value="az">Alfabéticamente A-Z</option>
+                  <option value="za">Alfabéticamente Z-A</option>
+                </select>
+              </div>
             </div>
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               {filtered.map((product) => (

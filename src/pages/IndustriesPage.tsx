@@ -16,12 +16,16 @@ import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { content } from "@/content/content";
 import { products } from "@/data/products";
-import industryFood from "@/assets/sectors/food/food-processing.jpg";
 import industryLaundry from "@/assets/sectors/laundry/industrial-laundry.jpg";
 import laundryIndustrialMachines from "@/assets/sectors/laundry/laundry-industrial-machines.webp";
-import laundryCommercialLifestyle from "@/assets/sectors/laundry/laundry-commercial-lifestyle.webp";
-import industryMaintenance from "@/assets/sectors/maintenance/industrial-maintenance.jpg";
+import laundryCommercialLifestyle from "@/assets/sectors/laundry/laundry-commercial-lifestyle.jpeg";
+import industrialFloorCleaning from "@/assets/sectors/maintenance/industrial-floor-cleaning.jpeg";
+import industrialPlantVisit from "@/assets/sectors/maintenance/industrial-plant-visit.jpeg";
 import aquamaticLimon from "@/assets/products/neodeter/aquamatic-limon.jpg";
+import neoclorDxPlusUsage from "@/assets/products/neodeter/neoclor-dx-plus-usage.webp";
+import neocloramFpUsage from "@/assets/products/neodeter/neocloram-fp-usage.webp";
+import neograsRemoverPlusUsage from "@/assets/products/neodeter/neogras-remover-plus-usage.webp";
+import neograsKitchenCleaning from "@/assets/sectors/food/neogras-kitchen-cleaning.webp";
 
 const solutionMap = {
   "Lavandería Industrial": {
@@ -41,12 +45,20 @@ const solutionMap = {
     productFilters: ["Lavandería Industrial"],
   },
   "Alimentos, Hoteles y Restaurantes": {
-    images: [{ src: industryFood, alt: "Alimentos, hoteles y restaurantes" }],
+    images: [
+      { src: neoclorDxPlusUsage, alt: "Desinfección de alimentos con Neoclor DX Plus" },
+      { src: neocloramFpUsage, alt: "Limpieza y desinfección de superficies con Neocloram FP" },
+      { src: neograsRemoverPlusUsage, alt: "Desengrase de hornos y cocinas" },
+      { src: neograsKitchenCleaning, alt: "Limpieza de campanas y superficies de cocina industrial" },
+    ],
     icon: Hotel,
     productFilters: ["Industria Alimentaria", "Hoteles y Restaurantes"],
   },
   "Mantenimiento Industrial": {
-    images: [{ src: industryMaintenance, alt: "Mantenimiento industrial" }],
+    images: [
+      { src: industrialPlantVisit, alt: "Visita técnica a operación industrial" },
+      { src: industrialFloorCleaning, alt: "Limpieza de áreas industriales con SS Industrial" },
+    ],
     icon: Wrench,
     productFilters: ["Mantenimiento Industrial"],
   },

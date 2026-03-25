@@ -1,15 +1,37 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import type { Product } from "@/data/products";
 
 const ProductCard = ({ product }: { product: Product }) => {
+  const navigate = useNavigate();
+  const productUrl = `/productos/${product.slug}`;
+
+  const openDetail = () => {
+    navigate(productUrl);
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      openDetail();
+    }
+  };
+
   return (
-    <div className="group overflow-hidden rounded-[1.5rem] border border-border/80 bg-card shadow-card transition-all hover:-translate-y-1 hover:shadow-card-hover">
+    <div
+      role="link"
+      tabIndex={0}
+      onClick={openDetail}
+      onKeyDown={handleKeyDown}
+      className="group cursor-pointer overflow-hidden rounded-[1.5rem] border border-border/80 bg-card shadow-card transition-all hover:-translate-y-1 hover:shadow-card-hover focus:outline-none focus:ring-2 focus:ring-primary/20"
+    >
       <div className="aspect-[16/9] overflow-hidden bg-muted">
         <img
           src={product.image}
           alt={product.name}
-          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className={`h-full w-full transition-transform duration-300 group-hover:scale-105 ${
+            product.imageFit === "contain" ? "object-contain p-4" : "object-cover"
+          }`}
         />
       </div>
       <div className="p-5">
@@ -21,10 +43,12 @@ const ProductCard = ({ product }: { product: Product }) => {
             {product.type}
           </span>
         </div>
-        <h3 className="mb-2 text-lg font-semibold text-foreground">{product.name}</h3>
+        <h3 className="mb-2 text-lg font-semibold uppercase text-foreground">{product.name}</h3>
         <p className="mb-4 line-clamp-2 text-sm text-muted-foreground">{product.shortDescription}</p>
         <Button asChild size="sm">
-          <Link to={`/productos/${product.slug}`}>Ver Detalles</Link>
+          <Link to={productUrl} onClick={(event) => event.stopPropagation()}>
+            Ver Detalle
+          </Link>
         </Button>
       </div>
     </div>

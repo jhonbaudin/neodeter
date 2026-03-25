@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Download, MessageCircle, ChevronRight, Sparkles, Settings, Search } from "lucide-react";
 import { useEffect, useState } from "react";
 import { content } from "@/content/content";
+import { resolvePublicUrl } from "@/lib/public-url";
 
 const tabs = ["Descripción", "Aplicaciones", "Especificaciones", "Seguridad"];
 
@@ -38,10 +39,14 @@ const ProductDetailPage = () => {
   const related = products.filter((p) => p.id !== product.id && p.industry.some((i) => product.industry.includes(i))).slice(0, 3);
   const benefitIcons = [Sparkles, Settings, Search];
   const hasDirectTechnicalSheet = Boolean(product.technicalSheetUrl && /\.pdf($|\?)/i.test(product.technicalSheetUrl));
+  const resolvedTechnicalSheetUrl = hasDirectTechnicalSheet && product.technicalSheetUrl
+    ? resolvePublicUrl(product.technicalSheetUrl)
+    : null;
   const galleryImages = product.galleryImages?.length
     ? product.galleryImages
-    : [{ src: product.image, alt: product.name, fit: "cover" as const }];
+    : [{ src: product.image, alt: product.name, fit: (product.imageFit ?? "cover") as "cover" | "contain" }];
   const selectedGalleryImage = galleryImages[selectedImageIndex] ?? galleryImages[0];
+  const productDisplayName = product.name.toUpperCase();
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -100,7 +105,7 @@ const ProductDetailPage = () => {
           <ChevronRight className="w-3 h-3" />
           <Link to="/productos" className="hover:text-foreground">Productos</Link>
           <ChevronRight className="w-3 h-3" />
-          <span className="text-foreground font-medium">{product.name}</span>
+          <span className="text-foreground font-medium uppercase">{productDisplayName}</span>
         </div>
       </div>
 
@@ -144,7 +149,9 @@ const ProductDetailPage = () => {
           </div>
 
           <div>
-            <h1 className="text-2xl md:text-3xl font-bold text-primary mb-1">{product.name}</h1>
+            <h1 className="mb-1 text-2xl font-bold uppercase text-primary md:text-3xl">
+              {productDisplayName}
+            </h1>
             <p className="text-secondary font-medium mb-4">Línea: {product.line}</p>
             <p className="text-muted-foreground mb-6">{product.description}</p>
 
@@ -180,10 +187,8 @@ const ProductDetailPage = () => {
               {hasDirectTechnicalSheet ? (
                 <Button asChild size="lg" className="flex-1">
                   <a
-                    href={product.technicalSheetUrl ?? undefined}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    download
+                    href={resolvedTechnicalSheetUrl ?? undefined}
+                    download={`${product.slug}.pdf`}
                   >
                     <Download className="w-4 h-4 mr-2" /> Descargar ficha técnica
                   </a>
