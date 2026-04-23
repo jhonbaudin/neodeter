@@ -36,5 +36,22 @@
 
   <body>
     <div id="root"></div>
+    <script>
+      (function () {
+        var redirectPath = sessionStorage.getItem("redirectPath");
+
+        if (!redirectPath) {
+          return;
+        }
+
+        sessionStorage.removeItem("redirectPath");
+
+        var currentPath = window.location.pathname + window.location.search + window.location.hash;
+
+        if (redirectPath !== currentPath) {
+          window.history.replaceState(null, "", redirectPath);
+        }
+      })();
+    </script>
   </body>
 </html>
