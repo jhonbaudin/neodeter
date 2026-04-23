@@ -112,6 +112,23 @@ const AboutPage = () => {
 
         <section>
           <div className="mb-8">
+            <span className="section-label">Identidad corporativa</span>
+            <h2 className="mt-4 text-3xl font-bold text-foreground">Misión y visión</h2>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-2">
+            {[content.company.mission, content.company.vision].map((statement) => (
+              <div key={statement} className="surface-panel p-8">
+                <p className="whitespace-pre-line text-sm leading-7 text-muted-foreground">
+                  {statement}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <div className="mb-8">
             <span className="section-label">Cómo trabajamos</span>
             <h2 className="mt-4 text-3xl font-bold text-foreground">Nuestra forma de trabajo</h2>
           </div>

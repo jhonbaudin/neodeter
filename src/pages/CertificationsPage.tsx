@@ -82,6 +82,12 @@ const CertificationsPage = () => {
           ))}
         </div>
 
+        <section className="mt-14 surface-panel p-8 md:p-10">
+          <p className="whitespace-pre-line text-sm leading-7 text-muted-foreground">
+            {content.company.qualityPolicy}
+          </p>
+        </section>
+
         <section className="mt-14 overflow-hidden rounded-[1.75rem] gradient-primary p-8 md:p-10">
           <div className="grid gap-8 lg:grid-cols-[1fr,auto] lg:items-center">
             <div className="rounded-[1.5rem] bg-slate-950/18 p-6 shadow-[0_24px_60px_-34px_rgba(5,20,38,0.72)] ring-1 ring-white/12 backdrop-blur-sm md:p-7">
