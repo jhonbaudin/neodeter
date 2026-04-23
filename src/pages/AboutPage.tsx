@@ -142,6 +142,24 @@ const AboutPage = () => {
         </section>
 
         <section>
+          <div className="mb-8 max-w-3xl">
+            <span className="section-label">Calidad</span>
+            <h2 className="mt-4 text-3xl font-bold text-foreground">Política de calidad</h2>
+          </div>
+
+          <div className="surface-panel p-8 md:p-10">
+            <p className="leading-8 text-muted-foreground">
+              <span className="mb-4 block font-semibold text-foreground">
+                {splitStatement(content.company.qualityPolicy).title}
+              </span>
+              <span className="whitespace-pre-line">
+                {splitStatement(content.company.qualityPolicy).body}
+              </span>
+            </p>
+          </div>
+        </section>
+
+        <section>
           <div className="mb-8">
             <span className="section-label">Cómo trabajamos</span>
             <h2 className="mt-4 text-3xl font-bold text-foreground">Nuestra forma de trabajo</h2>

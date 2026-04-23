@@ -44,18 +44,7 @@ const qualityBlocks = [
   },
 ];
 
-const splitStatement = (statement: string) => {
-  const [title, ...bodyParts] = statement.split("\n");
-
-  return {
-    title,
-    body: bodyParts.join("\n"),
-  };
-};
-
 const CertificationsPage = () => {
-  const { title, body } = splitStatement(content.company.qualityPolicy);
-
   return (
     <Layout>
       <Seo
@@ -70,20 +59,6 @@ const CertificationsPage = () => {
       />
 
       <div className="section-container py-12">
-        <section className="mb-14">
-          <div className="mb-8 max-w-3xl">
-            <span className="section-label">Calidad</span>
-            <h2 className="mt-4 text-3xl font-bold text-foreground">Política de calidad</h2>
-          </div>
-
-          <div className="surface-panel p-8 md:p-10">
-            <p className="leading-8 text-muted-foreground">
-              <span className="mb-4 block font-semibold text-foreground">{title}</span>
-              <span className="whitespace-pre-line">{body}</span>
-            </p>
-          </div>
-        </section>
-
         <div className="mb-8 max-w-3xl">
           <span className="section-label">Respaldo comercial</span>
           <h2 className="mt-4 text-3xl font-bold text-foreground">
