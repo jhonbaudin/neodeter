@@ -7,8 +7,8 @@ const officeMapQuery = encodeURIComponent(
 const factoryMapQuery = encodeURIComponent(
   "Car. Panamericana Sur Km. 17.5 Lote 80 A, Urb. La Concordia, San Juan de Miraflores, Lima, Perú",
 );
-const officeMapEmbedSrc = `https://www.google.com/maps?q=${officeMapQuery}&z=16&output=embed`;
-const factoryMapEmbedSrc = `https://www.google.com/maps?q=${factoryMapQuery}&z=15&output=embed`;
+const officeMapEmbedSrc = `https://www.google.com/maps?q=${officeMapQuery}&z=17&output=embed`;
+const factoryMapEmbedSrc = `https://www.google.com/maps?q=${factoryMapQuery}&z=16&output=embed`;
 const missionStatement =
   "MISIÓN\nDesarrollar, elaborar y comercializar productos químicos amigables con el medio ambiente para satisfacer las necesidades de nuestros clientes en las áreas de higiene, desinfección, mantenimiento industrial y lavandería, mediante la inversión constante en la innovación, la gestión y el desarrollo de nuestros integrantes. Aseguramos la rentabilidad de nuestro negocio y la mejora de nuestra calidad de vida y la de nuestra sociedad.";
 const visionStatement =
