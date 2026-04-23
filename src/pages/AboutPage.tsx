@@ -53,6 +53,15 @@ const pillars = [
   },
 ];
 
+const splitStatement = (statement: string) => {
+  const [title, ...bodyParts] = statement.split("\n");
+
+  return {
+    title,
+    body: bodyParts.join("\n"),
+  };
+};
+
 const AboutPage = () => {
   return (
     <Layout>
@@ -117,13 +126,18 @@ const AboutPage = () => {
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
-            {[content.company.mission, content.company.vision].map((statement) => (
-              <div key={statement} className="surface-panel p-8">
-                <p className="whitespace-pre-line text-sm leading-7 text-muted-foreground">
-                  {statement}
-                </p>
-              </div>
-            ))}
+            {[content.company.mission, content.company.vision].map((statement) => {
+              const { title, body } = splitStatement(statement);
+
+              return (
+                <div key={title} className="surface-panel p-8">
+                  <p className="leading-8 text-muted-foreground">
+                    <span className="mb-4 block font-semibold text-foreground">{title}</span>
+                    <span className="whitespace-pre-line">{body}</span>
+                  </p>
+                </div>
+              );
+            })}
           </div>
         </section>
 

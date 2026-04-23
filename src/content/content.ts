@@ -1,18 +1,20 @@
 const whatsappMessage = encodeURIComponent(
   "Hola, quisiera recibir asesoría comercial sobre sus soluciones químicas industriales.",
 );
-const officeMapQuery = encodeURIComponent("Av. Caminos del Inca 1089 Of. 201, Surco, Lima, Perú");
+const officeMapQuery = encodeURIComponent(
+  "Av. Caminos del Inca 1089 Of. 201, Surco, Lima, Perú",
+);
 const factoryMapQuery = encodeURIComponent(
   "Car. Panamericana Sur Km. 17.5 Lote 80 A, Urb. La Concordia, San Juan de Miraflores, Lima, Perú",
 );
 const officeMapEmbedSrc = `https://www.google.com/maps?q=${officeMapQuery}&z=16&output=embed`;
 const factoryMapEmbedSrc = `https://www.google.com/maps?q=${factoryMapQuery}&z=15&output=embed`;
 const missionStatement =
-  "MISIÓN\n\nDesarrollar, elaborar y comercializar productos químicos amigables con el medio ambiente para satisfacer las necesidades de nuestros clientes en las áreas de higiene, desinfección, mantenimiento industrial y lavandería, mediante la inversión constante en la innovación, la gestión y el desarrollo de nuestros integrantes. Aseguramos la rentabilidad de nuestro negocio y la mejora de nuestra calidad de vida y la de nuestra sociedad.";
+  "MISIÓN\nDesarrollar, elaborar y comercializar productos químicos amigables con el medio ambiente para satisfacer las necesidades de nuestros clientes en las áreas de higiene, desinfección, mantenimiento industrial y lavandería, mediante la inversión constante en la innovación, la gestión y el desarrollo de nuestros integrantes. Aseguramos la rentabilidad de nuestro negocio y la mejora de nuestra calidad de vida y la de nuestra sociedad.";
 const visionStatement =
-  "VISIÓN\n\nSer una empresa reconocida regionalmente por la innovación, el alto desempeño de sus productos y servicio técnico, así como su gestión ambiental responsable, caracterizándonos por un entorno laboral creativo, motivador, profesional y respetuoso.";
+  "VISIÓN\nSer una empresa reconocida regionalmente por la innovación, el alto desempeño de sus productos y servicio técnico, así como su gestión ambiental responsable, caracterizándonos por un entorno laboral creativo, motivador, profesional y respetuoso.";
 const qualityPolicyStatement =
-  "POLÍTICA DE CALIDAD\nNEO DETER DEL PERU S.A.C\n\nSomos una empresa industrial del sector químico que diseña, desarrolla, produce y comercializa productos químicos para higiene, desinfección, mantenimiento industrial y lavandería. Somos responsables con nuestras decisiones y acciones para la satisfacción de las necesidades de nuestros clientes y demás grupos de interés, la mejora continua de nuestros procesos, productos y servicios conforme al Sistema de Gestión de la Calidad ISO 9001 vigente, el cumplimiento de la normatividad aplicable a nuestras operaciones, la rentabilidad constante de nuestro negocio, cuidado del medio ambiente, la inversión en innovación y capacitación. Entregaremos cada vez mejor calidad, mayor rapidez y más conocimiento.";
+  "NEO DETER DEL PERU S.A.C\nSomos una empresa industrial del sector químico que diseña, desarrolla, produce y comercializa productos químicos para higiene, desinfección, mantenimiento industrial y lavandería. Somos responsables con nuestras decisiones y acciones para la satisfacción de las necesidades de nuestros clientes y demás grupos de interés, la mejora continua de nuestros procesos, productos y servicios conforme al Sistema de Gestión de la Calidad ISO 9001 vigente, el cumplimiento de la normatividad aplicable a nuestras operaciones, la rentabilidad constante de nuestro negocio, cuidado del medio ambiente, la inversión en innovación y capacitación. Entregaremos cada vez mejor calidad, mayor rapidez y más conocimiento.";
 
 export const content = {
   company: {
@@ -33,7 +35,8 @@ export const content = {
     siteName: "Neo Deter del Perú",
     siteUrl: "https://neodeter.pe",
     locale: "es_PE",
-    defaultTitle: "Neo Deter del Perú | Soluciones químicas para limpieza y desinfección industrial",
+    defaultTitle:
+      "Neo Deter del Perú | Soluciones químicas para limpieza y desinfección industrial",
     titleTemplate: "%s | Neo Deter del Perú",
     defaultDescription:
       "Fabricación y comercialización de productos químicos para limpieza, desinfección, lavandería y mantenimiento industrial en Perú.",
