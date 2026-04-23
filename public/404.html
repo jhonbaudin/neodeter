@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Neo Deter del Peru</title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        var redirectPath = window.location.pathname + window.location.search + window.location.hash;
+
+        sessionStorage.setItem("redirectPath", redirectPath);
+
+        var pathSegments = window.location.pathname.split("/").filter(Boolean);
+        var projectBase = pathSegments.length > 0 ? "/" + pathSegments[0] + "/" : "/";
+
+        window.location.replace(projectBase);
+      })();
+    </script>
+  </body>
+</html>
