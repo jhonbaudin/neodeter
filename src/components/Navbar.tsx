@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,6 +20,10 @@ const isActiveLink = (pathname: string, to: string) =>
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    setOpen(false);
+  }, [location.pathname]);
 
   return (
     <nav className="sticky top-0 z-50 border-b border-border/80 bg-card/90 backdrop-blur-xl">
@@ -56,19 +60,25 @@ const Navbar = () => {
           </Button>
         </div>
 
-        <button className="rounded-full p-2 lg:hidden" onClick={() => setOpen(!open)}>
+        <button
+          type="button"
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          className="inline-flex items-center justify-center rounded-full border border-border/80 bg-card p-2 text-foreground shadow-sm transition-colors hover:bg-muted/60 lg:hidden"
+          onClick={() => setOpen((currentOpen) => !currentOpen)}
+        >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-border bg-card">
+        <div id="mobile-menu" className="border-t border-border bg-card shadow-card lg:hidden">
           <div className="section-container space-y-1 px-0 py-4">
             {navLinks.map((link) => (
               <Link
                 key={link.to}
                 to={link.to}
-                onClick={() => setOpen(false)}
                 className={`block rounded-xl px-4 py-3 text-sm font-medium ${
                   isActiveLink(location.pathname, link.to)
                     ? "bg-primary/8 text-primary"
@@ -85,7 +95,7 @@ const Navbar = () => {
               </a>
             </div>
             <Button asChild className="mt-2 w-full">
-              <Link to="/contacto" onClick={() => setOpen(false)}>Contáctanos</Link>
+              <Link to="/contacto">Contáctanos</Link>
             </Button>
           </div>
         </div>
