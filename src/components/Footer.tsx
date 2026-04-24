@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
 import BrandLogo from "@/components/BrandLogo";
 import { content } from "@/content/content";
+import carbonFootprintLogo from "@/assets/certifications/carbon-footprint-logo.png";
 import qualityCertificate from "@/assets/certifications/quality-certificate.webp";
 
 const Footer = () => {
@@ -43,16 +44,28 @@ const Footer = () => {
                 );
               })}
             </div>
-            <Link
-              to="/certificaciones"
-              className="mt-6 inline-flex max-w-[9.5rem] rounded-[1.25rem] bg-transparent p-0 transition-transform hover:scale-[1.02]"
-            >
-              <img
-                src={qualityCertificate}
-                alt="Certificado de calidad"
-                className="h-auto w-full object-contain"
-              />
-            </Link>
+            <div className="mt-6 flex flex-wrap items-end gap-3">
+              <Link
+                to="/certificaciones"
+                className="inline-flex h-36 rounded-[1.25rem] bg-transparent p-0 transition-transform hover:scale-[1.02]"
+              >
+                <img
+                  src={qualityCertificate}
+                  alt="Certificado de calidad"
+                  className="h-full w-auto object-contain"
+                />
+              </Link>
+              <Link
+                to="/certificaciones"
+                className="inline-flex h-36 rounded-[0.75rem] bg-transparent p-0 transition-transform hover:scale-[1.02]"
+              >
+                <img
+                  src={carbonFootprintLogo}
+                  alt="Huella de carbono Perú"
+                  className="h-full w-auto object-contain"
+                />
+              </Link>
+            </div>
           </div>
 
           <div>

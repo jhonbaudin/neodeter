@@ -39,6 +39,28 @@ import neoxolC30ApView02 from "@/assets/products/neodeter/neoxol-c-30ap/neoxol-c
 import neoxolC30ApView03 from "@/assets/products/neodeter/neoxol-c-30ap/neoxol-c-30ap-view-03.webp";
 import ssIndustrialView01 from "@/assets/products/neodeter/ss-industrial/ss-industrial-view-01.webp";
 import ssIndustrialView02 from "@/assets/products/neodeter/ss-industrial/ss-industrial-view-02.webp";
+import tork200501View01 from "@/assets/products/tork/200501/tork-200501-view-01.webp";
+import tork200211View01 from "@/assets/products/tork/200211/tork-200211-view-01.webp";
+import tork204291View01 from "@/assets/products/tork/204291/tork-204291-view-02.png";
+import tork204331View01 from "@/assets/products/tork/204331/tork-204331-view-02.png";
+import tork204337View01 from "@/assets/products/tork/204337/tork-204337-view-02.png";
+import tork204695Compatible01 from "@/assets/products/tork/204695/tork-204695-compatible-01.jpeg";
+import tork204695Usage01 from "@/assets/products/tork/204695/tork-204695-usage-01.jpeg";
+import tork204695View01 from "@/assets/products/tork/204695/tork-204695-view-01.webp";
+import tork204695View02 from "@/assets/products/tork/204695/tork-204695-view-02.webp";
+import tork204999Compatible01 from "@/assets/products/tork/204999/tork-204999-compatible-01.jpeg";
+import tork204999Usage01 from "@/assets/products/tork/204999/tork-204999-usage-01.jpeg";
+import tork204999View01 from "@/assets/products/tork/204999/tork-204999-view-01.jpeg";
+import tork204998Detail01 from "@/assets/products/tork/204998/tork-204998-detail-01.jpeg";
+import tork204998View01 from "@/assets/products/tork/204998/tork-204998-view-01.jpeg";
+import tork204998View02 from "@/assets/products/tork/204998/tork-204998-view-02.jpeg";
+import torkXpressnapView01 from "@/assets/products/tork/xpressnap/tork-xpressnap-view-01.webp";
+import torkXpressnapView02 from "@/assets/products/tork/xpressnap/tork-xpressnap-view-02.webp";
+import torkXpressnapView03 from "@/assets/products/tork/xpressnap/tork-xpressnap-view-03.webp";
+import torkXpressnapView04 from "@/assets/products/tork/xpressnap/tork-xpressnap-view-04.webp";
+import torkXpressnapView05 from "@/assets/products/tork/xpressnap/tork-xpressnap-view-05.webp";
+import torkXpressnapView06 from "@/assets/products/tork/xpressnap/tork-xpressnap-view-06.webp";
+import torkXpressnapView07 from "@/assets/products/tork/xpressnap/tork-xpressnap-view-07.webp";
 
 export interface Product {
   id: string;
@@ -80,7 +102,11 @@ const biolavajillaFamilyGallery: Product["galleryImages"] = [
 ];
 
 const neoalkadeterGallery: Product["galleryImages"] = [
-  { src: neoalkadeterView01, alt: "NeoAlkadeter presentación comercial", fit: "contain" },
+  {
+    src: neoalkadeterView01,
+    alt: "NeoAlkadeter presentación comercial",
+    fit: "contain",
+  },
 ];
 
 const neoclorDxFamilyGallery: Product["galleryImages"] = [
@@ -90,13 +116,41 @@ const neoclorDxFamilyGallery: Product["galleryImages"] = [
 ];
 
 const neocloramFamilyGallery: Product["galleryImages"] = [
-  { src: neocloramFamily4kgView01, alt: "NeoCloram familia 4 kg vista 1", fit: "contain" },
-  { src: neocloramFamily4kgView02, alt: "NeoCloram familia 4 kg vista 2", fit: "contain" },
-  { src: neocloramFamily4kgView03, alt: "NeoCloram familia 4 kg vista 3", fit: "contain" },
-  { src: neocloramFamily4kgView04, alt: "NeoCloram familia 4 kg vista 4", fit: "contain" },
-  { src: neocloramFamily4kgView05, alt: "NeoCloram familia 4 kg vista 5", fit: "contain" },
-  { src: neocloramFamily20kgView01, alt: "NeoCloram familia 20 kg vista 1", fit: "contain" },
-  { src: neocloramFamily20kgView02, alt: "NeoCloram familia 20 kg vista 2", fit: "contain" },
+  {
+    src: neocloramFamily4kgView01,
+    alt: "NeoCloram familia 4 kg vista 1",
+    fit: "contain",
+  },
+  {
+    src: neocloramFamily4kgView02,
+    alt: "NeoCloram familia 4 kg vista 2",
+    fit: "contain",
+  },
+  {
+    src: neocloramFamily4kgView03,
+    alt: "NeoCloram familia 4 kg vista 3",
+    fit: "contain",
+  },
+  {
+    src: neocloramFamily4kgView04,
+    alt: "NeoCloram familia 4 kg vista 4",
+    fit: "contain",
+  },
+  {
+    src: neocloramFamily4kgView05,
+    alt: "NeoCloram familia 4 kg vista 5",
+    fit: "contain",
+  },
+  {
+    src: neocloramFamily20kgView01,
+    alt: "NeoCloram familia 20 kg vista 1",
+    fit: "contain",
+  },
+  {
+    src: neocloramFamily20kgView02,
+    alt: "NeoCloram familia 20 kg vista 2",
+    fit: "contain",
+  },
 ];
 
 const neofrutFamilyGallery: Product["galleryImages"] = [
@@ -121,6 +175,143 @@ const neoxolC30ApGallery: Product["galleryImages"] = [
 const ssIndustrialGallery: Product["galleryImages"] = [
   { src: ssIndustrialView01, alt: "SS Industrial vista 1", fit: "contain" },
   { src: ssIndustrialView02, alt: "SS Industrial vista 2", fit: "contain" },
+];
+
+const tork200501Gallery: Product["galleryImages"] = [
+  {
+    src: tork200501View01,
+    alt: "Tork Xpressnap Servilleta Natural 200501",
+    fit: "contain",
+  },
+];
+
+const tork200211Gallery: Product["galleryImages"] = [
+  {
+    src: tork200211View01,
+    alt: "Tork Xpressnap Servilleta Blanca 200211",
+    fit: "contain",
+  },
+];
+
+const tork204291Gallery: Product["galleryImages"] = [
+  {
+    src: tork204291View01,
+    alt: "Toalla Jumbo Tork Económico Hoja Simple 204291",
+    fit: "contain",
+  },
+];
+
+const tork204331Gallery: Product["galleryImages"] = [
+  {
+    src: tork204331View01,
+    alt: "Papel Higiénico Jumbo Tork Económico Hoja Simple 204331",
+    fit: "contain",
+  },
+];
+
+const tork204337Gallery: Product["galleryImages"] = [
+  {
+    src: tork204337View01,
+    alt: "Tork Papel Higiénico Bajo Metrajeo Hoja Doble 204337",
+    fit: "contain",
+  },
+];
+
+const tork204695Gallery: Product["galleryImages"] = [
+  {
+    src: tork204695View01,
+    alt: "Dispensador Tork 204695 vista frontal",
+    fit: "contain",
+  },
+  {
+    src: tork204695View02,
+    alt: "Dispensador Tork 204695 detalle frontal",
+    fit: "contain",
+  },
+  {
+    src: tork204695Usage01,
+    alt: "Baño institucional para dispensador Tork 204695",
+    fit: "cover",
+  },
+  {
+    src: tork204695Compatible01,
+    alt: "Papel higiénico compatible Tork 204331",
+    fit: "contain",
+  },
+];
+
+const tork204998Gallery: Product["galleryImages"] = [
+  {
+    src: tork204998View01,
+    alt: "Dispensador Tork 204998 vista frontal",
+    fit: "contain",
+  },
+  {
+    src: tork204998View02,
+    alt: "Dispensador Tork 204998 detalle de palanca",
+    fit: "contain",
+  },
+  {
+    src: tork204998Detail01,
+    alt: "Dispensador Tork 204998 detalle interno",
+    fit: "contain",
+  },
+];
+
+const tork204999Gallery: Product["galleryImages"] = [
+  {
+    src: tork204999View01,
+    alt: "Dispensador Tork 204999 vista frontal",
+    fit: "contain",
+  },
+  {
+    src: tork204999Usage01,
+    alt: "Baño institucional para dispensador Tork 204999",
+    fit: "cover",
+  },
+  {
+    src: tork204999Compatible01,
+    alt: "Papel higiénico compatible Tork 204331",
+    fit: "contain",
+  },
+];
+
+const torkXpressnapGallery: Product["galleryImages"] = [
+  {
+    src: torkXpressnapView01,
+    alt: "Dispensador Tork Xpressnap vista frontal",
+    fit: "contain",
+  },
+  {
+    src: torkXpressnapView02,
+    alt: "Dispensador Tork Xpressnap detalle superior",
+    fit: "contain",
+  },
+  {
+    src: torkXpressnapView03,
+    alt: "Dispensador Tork Xpressnap vista posterior",
+    fit: "contain",
+  },
+  {
+    src: torkXpressnapView04,
+    alt: "Dispensador Tork Xpressnap vista frontal elevada",
+    fit: "contain",
+  },
+  {
+    src: torkXpressnapView05,
+    alt: "Dispensador Tork Xpressnap vista posterior alternativa",
+    fit: "contain",
+  },
+  {
+    src: torkXpressnapView06,
+    alt: "Dispensador Tork Xpressnap salida de servilletas",
+    fit: "contain",
+  },
+  {
+    src: torkXpressnapView07,
+    alt: "Dispensador Tork Xpressnap interior",
+    fit: "contain",
+  },
 ];
 
 export const products: Product[] = [
@@ -309,7 +500,8 @@ export const products: Product[] = [
       "Solicitar hoja de seguridad antes de la implementación operativa",
       "Usar según la dosificación y protocolo definido por la empresa",
     ],
-    technicalSheetUrl: "/contacto?producto=aquamatic-limon&solicitud=ficha-tecnica",
+    technicalSheetUrl:
+      "/contacto?producto=aquamatic-limon&solicitud=ficha-tecnica",
     galleryImages: [
       {
         src: aquamaticLimon,
@@ -739,7 +931,10 @@ export const products: Product[] = [
       "Fácil y rápido enjuague",
     ],
     specs: [
-      { label: "Apariencia", value: "Líquido ligeramente lechoso, ligeramente marrón" },
+      {
+        label: "Apariencia",
+        value: "Líquido ligeramente lechoso, ligeramente marrón",
+      },
       { label: "Olor", value: "Característico" },
       { label: "pH (solución al 1%)", value: "2.0 ± 0.5" },
       { label: "% de acidez (como H3PO4)", value: "30% - 50%" },
@@ -1399,7 +1594,10 @@ export const products: Product[] = [
     ],
     specs: [
       { label: "Apariencia", value: "Líquido traslúcido ligeramente amarillo" },
-      { label: "Potencial de dióxido de cloro en solución", value: "Mínimo 5%" },
+      {
+        label: "Potencial de dióxido de cloro en solución",
+        value: "Mínimo 5%",
+      },
       { label: "% de oxicloros (como ClO2)", value: "5% a 6%" },
       { label: "pH (solución al 1%)", value: "8.0 ± 1" },
       { label: "Densidad", value: "1.07 ± 0.05" },
@@ -1675,7 +1873,10 @@ export const products: Product[] = [
       "No contribuye significativamente a la carga de efluentes en su concentración de uso",
     ],
     specs: [
-      { label: "Apariencia", value: "Líquido ligeramente amarillo sin sedimentos" },
+      {
+        label: "Apariencia",
+        value: "Líquido ligeramente amarillo sin sedimentos",
+      },
       { label: "pH (solución al 1%)", value: "12.0 ± 0.5" },
       { label: "% alcalinidad total", value: "17 ± 1" },
       { label: "Densidad", value: "1.21 ± 0.05 gr/cc" },
@@ -1859,7 +2060,11 @@ export const products: Product[] = [
     imageFit: "contain",
     line: "Mantenimiento Industrial",
     type: "Desengrasantes",
-    industry: ["Hoteles y Restaurantes", "Mantenimiento Industrial", "Industria Alimentaria"],
+    industry: [
+      "Hoteles y Restaurantes",
+      "Mantenimiento Industrial",
+      "Industria Alimentaria",
+    ],
     presentations: ["4 kg", "20 kg"],
     benefits: [
       "Alto poder de humectación y penetración",
@@ -1947,7 +2152,10 @@ export const products: Product[] = [
       { label: "Apariencia (solución al 1%)", value: "Clara sin sedimentos" },
       { label: "Olor", value: "Sin olor" },
       { label: "pH (producto puro)", value: ">13" },
-      { label: "% de alcalinidad (solución al 1%)", value: "0.2% ± 0.05 como NaOH" },
+      {
+        label: "% de alcalinidad (solución al 1%)",
+        value: "0.2% ± 0.05 como NaOH",
+      },
       { label: "Oxicloros (como Cl2)", value: "Mínimo 1500 ppm" },
     ],
     applications: [
@@ -2275,7 +2483,11 @@ export const products: Product[] = [
     imageFit: "contain",
     line: "Mantenimiento Industrial",
     type: "Desengrasantes",
-    industry: ["Mantenimiento Industrial", "Industria Alimentaria", "Hoteles y Restaurantes"],
+    industry: [
+      "Mantenimiento Industrial",
+      "Industria Alimentaria",
+      "Hoteles y Restaurantes",
+    ],
     presentations: ["4 kg", "20 kg"],
     benefits: [
       "Remueve grasas pesadas, proteínas resecas y residuos carbonizados",
@@ -2360,7 +2572,10 @@ export const products: Product[] = [
     specs: [
       { label: "Apariencia", value: "Polvo granulado color blanco" },
       { label: "Olor", value: "Característico" },
-      { label: "pH (solución al 1%)", value: "11.0 ± 0.5 en agua blanda (20 °C)" },
+      {
+        label: "pH (solución al 1%)",
+        value: "11.0 ± 0.5 en agua blanda (20 °C)",
+      },
       { label: "Enjuagabilidad", value: "Completa con agua" },
       { label: "Espuma", value: "Media" },
       { label: "Biodegradabilidad", value: "98% a 99%" },
@@ -2454,6 +2669,387 @@ export const products: Product[] = [
     technicalSheetUrl: "/fichas-tecnicas/ss-industrial.pdf",
     galleryImages: ssIndustrialGallery,
   },
+  {
+    id: "tork-toalla-jumbo-economico-hoja-simple-204291",
+    name: "Toalla Jumbo Tork Económico Hoja Simple",
+    slug: "tork-toalla-jumbo-economico-hoja-simple-204291",
+    shortDescription:
+      "Toalla de papel Jumbo Tork Económico de hoja simple, presentación de 2 rollos de 190 metros.",
+    description:
+      "Toalla de papel en rollo Tork Universal para operaciones institucionales que requieren reposición práctica y control de consumo en espacios de tráfico medio y alto.",
+    image: tork204291View01,
+    imageFit: "contain",
+    line: "Higiene Institucional (Tork)",
+    type: "Toalla de papel",
+    industry: ["Higiene Institucional"],
+    presentations: ["2 rollos x 190 m"],
+    benefits: [
+      "Formato en rollo para espacios de tráfico medio y alto",
+      "Hoja simple de calidad Universal",
+      "Compatible con dispensador Tork 204998",
+    ],
+    specs: [
+      { label: "Código", value: "204291" },
+      { label: "Color", value: "Blanco" },
+      { label: "Calidad", value: "Universal" },
+      { label: "Tipo de hoja", value: "Hoja simple" },
+      { label: "Presentación", value: "2 rollos" },
+      { label: "Longitud por rollo", value: "190 m" },
+    ],
+    applications: [
+      "Secado de manos en baños institucionales",
+      "Espacios de tráfico medio y alto",
+      "Uso con dispensador de toalla en rollo Tork 204998",
+    ],
+    safety: [
+      "Almacenar en lugar seco",
+      "Usar con productos compatibles del sistema Tork",
+    ],
+    technicalSheetUrl: "/fichas-tecnicas/tork-universal-dispensadores.pdf",
+    galleryImages: tork204291Gallery,
+  },
+  {
+    id: "tork-papel-higienico-jumbo-economico-hoja-simple-204331",
+    name: "Papel Higiénico Jumbo Tork Económico Hoja Simple",
+    slug: "tork-papel-higienico-jumbo-economico-hoja-simple-204331",
+    shortDescription:
+      "Papel higiénico Jumbo Tork Económico de hoja simple, presentación de 4 rollos de 500 metros.",
+    description:
+      "Papel higiénico Jumbo Tork Universal en bobina de hoja simple, orientado a baños institucionales de alto tráfico donde se busca mayor autonomía entre recambios.",
+    image: tork204331View01,
+    imageFit: "contain",
+    line: "Higiene Institucional (Tork)",
+    type: "Papel higiénico",
+    industry: ["Higiene Institucional"],
+    presentations: ["4 rollos x 500 m"],
+    benefits: [
+      "Alta capacidad para baños de alto tráfico",
+      "Hoja simple de calidad Universal",
+      "Compatible con dispensadores Tork 204695 y 204999",
+    ],
+    specs: [
+      { label: "Código", value: "204331" },
+      { label: "Color", value: "Blanco" },
+      { label: "Calidad", value: "Universal" },
+      { label: "Tipo de hoja", value: "Hoja simple" },
+      { label: "Presentación", value: "4 rollos" },
+      { label: "Longitud por rollo", value: "500 m" },
+    ],
+    applications: [
+      "Baños institucionales de alto tráfico",
+      "Reposición de papel higiénico Jumbo en bobina",
+      "Uso con dispensadores de papel higiénico Jumbo Tork 204695 y 204999",
+    ],
+    safety: [
+      "Almacenar en lugar seco",
+      "Usar con productos compatibles del sistema Tork",
+    ],
+    technicalSheetUrl: "/fichas-tecnicas/tork-universal-dispensadores.pdf",
+    galleryImages: tork204331Gallery,
+  },
+  {
+    id: "tork-papel-higienico-bajo-metrajeo-hoja-doble-204337",
+    name: "Tork Papel Higiénico Bajo Metrajeo Hoja Doble",
+    slug: "tork-papel-higienico-bajo-metrajeo-hoja-doble-204337",
+    shortDescription:
+      "Papel higiénico Tork de bajo metrajeo con hoja doble, presentación de 48 rollos de 20 metros.",
+    description:
+      "Papel higiénico Tork de bajo metrajeo y hoja doble para baños institucionales de menor rotación, oficinas y espacios donde se prioriza comodidad de uso.",
+    image: tork204337View01,
+    imageFit: "contain",
+    line: "Higiene Institucional (Tork)",
+    type: "Papel higiénico",
+    industry: ["Higiene Institucional"],
+    presentations: ["48 rollos x 20 m"],
+    benefits: [
+      "Hoja doble para mayor absorción",
+      "Formato de bajo metrajeo para baños de menor tráfico",
+      "Presentación de 48 rollos para reposición institucional",
+    ],
+    specs: [
+      { label: "Código", value: "204337" },
+      { label: "Color", value: "Blanco" },
+      { label: "Tipo de hoja", value: "Hoja doble" },
+      { label: "Presentación", value: "48 rollos" },
+      { label: "Longitud por rollo", value: "20 m" },
+    ],
+    applications: [
+      "Baños de oficinas y espacios institucionales",
+      "Baños de bajo tráfico",
+      "Reposición de papel higiénico en rollos convencionales",
+    ],
+    safety: [
+      "Almacenar en lugar seco",
+      "Mantener el empaque cerrado hasta su uso",
+    ],
+    technicalSheetUrl: "/fichas-tecnicas/tork-universal-dispensadores.pdf",
+    galleryImages: tork204337Gallery,
+  },
+  {
+    id: "tork-xpressnap-dispensador",
+    name: "Tork Xpressnap",
+    slug: "tork-xpressnap-dispensador",
+    shortDescription:
+      "Dispensador Tork Xpressnap para servilletas una a la vez, orientado a reducir consumo y mejorar la higiene.",
+    description:
+      "Tork Xpressnap es un sistema de dispensación de servilletas una a la vez para negocios de comida y atención al público. Ayuda a reducir el consumo frente a sistemas tradicionales y mejora la higiene porque cada cliente toca solo la servilleta que va a usar.",
+    image: torkXpressnapView01,
+    imageFit: "contain",
+    line: "Higiene Institucional (Tork)",
+    type: "Dispensadores",
+    industry: ["Higiene Institucional", "Hoteles y Restaurantes"],
+    presentations: ["Dispensador"],
+    benefits: [
+      "Reduce el consumo de servilletas",
+      "Fácil de usar y recargar",
+      "Dispensación una a la vez para mejorar la higiene",
+    ],
+    specs: [
+      { label: "Sistema", value: "Xpressnap" },
+      { label: "Uso", value: "Servilletas interfoliadas" },
+      { label: "Productos compatibles", value: "200501 y 200211" },
+    ],
+    applications: [
+      "Restaurantes de atención rápida",
+      "Comedores, cafeterías y puntos de autoservicio",
+      "Negocios que requieren control de consumo de servilletas",
+    ],
+    safety: [
+      "Usar con servilletas compatibles Tork Xpressnap",
+      "Mantener el dispensador limpio y protegido de golpes",
+    ],
+    technicalSheetUrl: null,
+    galleryImages: torkXpressnapGallery,
+  },
+  {
+    id: "tork-xpressnap-servilleta-natural-200501",
+    name: "Tork Xpressnap Servilleta Natural",
+    slug: "tork-xpressnap-servilleta-natural-200501",
+    shortDescription:
+      "Servilleta compatible con dispensadores Tork Xpressnap, código 200501, para dispensación una a la vez.",
+    description:
+      "Servilleta Tork Xpressnap compatible con el sistema de dispensación una a la vez. Está orientada a negocios que buscan reducir consumo y mejorar la higiene en el autoservicio de servilletas.",
+    image: tork200501View01,
+    imageFit: "contain",
+    line: "Higiene Institucional (Tork)",
+    type: "Servilletas",
+    industry: ["Higiene Institucional", "Hoteles y Restaurantes"],
+    presentations: ["Código 200501"],
+    benefits: [
+      "Compatible con dispensadores Xpressnap",
+      "Dispensación una a la vez para reducir consumo",
+      "Cada cliente toca solo la servilleta que va a usar",
+    ],
+    specs: [
+      { label: "Código", value: "200501" },
+      { label: "Sistema", value: "Xpressnap" },
+      { label: "Tipo", value: "Servilleta interfoliada" },
+      { label: "Color", value: "Natural" },
+    ],
+    applications: [
+      "Autoservicio de servilletas en restaurantes",
+      "Cafeterías y comedores",
+      "Uso con dispensadores Tork Xpressnap",
+    ],
+    safety: [
+      "Almacenar en lugar seco",
+      "Mantener el empaque cerrado hasta su uso",
+    ],
+    technicalSheetUrl: null,
+    galleryImages: tork200501Gallery,
+  },
+  {
+    id: "tork-xpressnap-servilleta-blanca-200211",
+    name: "Tork Xpressnap Servilleta Blanca",
+    slug: "tork-xpressnap-servilleta-blanca-200211",
+    shortDescription:
+      "Servilleta compatible con dispensadores Tork Xpressnap, código 200211, para dispensación una a la vez.",
+    description:
+      "Servilleta Tork Xpressnap compatible con el sistema de dispensación una a la vez. Está orientada a negocios que buscan una solución práctica para controlar consumo y mantener una experiencia higiénica.",
+    image: tork200211View01,
+    imageFit: "contain",
+    line: "Higiene Institucional (Tork)",
+    type: "Servilletas",
+    industry: ["Higiene Institucional", "Hoteles y Restaurantes"],
+    presentations: ["Código 200211"],
+    benefits: [
+      "Compatible con dispensadores Xpressnap",
+      "Dispensación una a la vez para reducir consumo",
+      "Ayuda a mejorar la higiene en puntos de autoservicio",
+    ],
+    specs: [
+      { label: "Código", value: "200211" },
+      { label: "Sistema", value: "Xpressnap" },
+      { label: "Tipo", value: "Servilleta interfoliada" },
+      { label: "Color", value: "Blanco" },
+    ],
+    applications: [
+      "Autoservicio de servilletas en restaurantes",
+      "Cafeterías y comedores",
+      "Uso con dispensadores Tork Xpressnap",
+    ],
+    safety: [
+      "Almacenar en lugar seco",
+      "Mantener el empaque cerrado hasta su uso",
+    ],
+    technicalSheetUrl: null,
+    galleryImages: tork200211Gallery,
+  },
+  {
+    id: "tork-dispensador-papel-jumbo-lc-204695",
+    name: "Dispensador Tork de papel jumbo, linea clasic",
+    slug: "tork-dispensador-papel-jumbo-lc-204695",
+    shortDescription:
+      "Dispensador Tork de papel higiénico Jumbo, línea Classic, sistema T23, diseñado para baños de alto tráfico.",
+    description:
+      "Dispensador de papel higiénico en bobina de la línea Classic, fabricado con plástico resistente para asegurar larga duración en baños muy transitados. Su diseño redondeado favorece la higiene y permite instalar rollos de hasta 500 metros.",
+    image: tork204695View01,
+    imageFit: "contain",
+    line: "Higiene Institucional (Tork)",
+    type: "Dispensadores",
+    industry: ["Higiene Institucional"],
+    presentations: ["1 unidad"],
+    benefits: [
+      "Diseñado para baños muy transitados",
+      "Diseño redondeado que evita la acumulación de polvo",
+      "Gran capacidad para rollos de papel higiénico de 500 metros",
+    ],
+    specs: [
+      { label: "Código", value: "204695" },
+      { label: "Color", value: "Blanco" },
+      { label: "Línea", value: "Classic" },
+      { label: "Sistema", value: "T23" },
+      { label: "Material", value: "Plástico" },
+      { label: "Alto", value: "30.5 cm" },
+      { label: "Ancho", value: "26.0 cm" },
+      { label: "Largo", value: "14.3 cm" },
+      { label: "Origen", value: "China" },
+      { label: "Cantidad por caja", value: "1" },
+      { label: "Alto caja", value: "31.0 cm" },
+      { label: "Ancho caja", value: "27.0 cm" },
+      { label: "Largo caja", value: "14.5 cm" },
+      { label: "Peso bruto", value: "5.4 kg" },
+      { label: "Capas pallet", value: "5" },
+      { label: "Bulto / capa", value: "24" },
+      { label: "Unidades por pallet", value: "120" },
+    ],
+    applications: [
+      "Baños institucionales de tráfico alto",
+      "Dispensación de papel higiénico Jumbo en bobina",
+      "Compatible con Papel Higiénico Jumbo Tork Económico 4x500 mts, código 204331",
+    ],
+    safety: [
+      "Instalar según indicaciones del fabricante",
+      "Usar con productos compatibles del sistema T23",
+    ],
+    technicalSheetUrl: "/fichas-tecnicas/ficha-tecnica-204695.pdf",
+    galleryImages: tork204695Gallery,
+  },
+  {
+    id: "tork-dispensador-papel-jumbo-lc-model2-204999",
+    name: "Dispensador Tork de papel jumbo, linea clasic modelo 2",
+    slug: "tork-dispensador-papel-jumbo-lc-model2-204999",
+    shortDescription:
+      "Dispensador Tork de papel higiénico Jumbo, línea Elegance, sistema ABS, diseñado para tráfico elevado.",
+    description:
+      "Dispensador de papel higiénico Jumbo de diseño robusto, funcional y estético. Está pensado para espacios comerciales o institucionales con uso intensivo, ofreciendo comodidad, seguridad y resistencia.",
+    image: tork204999View01,
+    imageFit: "contain",
+    line: "Higiene Institucional (Tork)",
+    type: "Dispensadores",
+    industry: ["Higiene Institucional"],
+    presentations: ["1 unidad"],
+    benefits: [
+      "Diseño robusto para condiciones de uso intensivo",
+      "Se adapta a espacios comerciales o institucionales",
+      "Dispone de llave de seguridad estándar",
+    ],
+    specs: [
+      { label: "Código", value: "204999" },
+      { label: "Color", value: "Blanco" },
+      { label: "Línea", value: "Elegance" },
+      { label: "Sistema", value: "ABS" },
+      { label: "Material", value: "Plástico" },
+      { label: "Alto", value: "29 cm" },
+      { label: "Ancho", value: "26.8 cm" },
+      { label: "Largo", value: "13 cm" },
+      { label: "Peso neto", value: "765 g" },
+      { label: "EAN 13", value: "7016646005531" },
+      { label: "Origen", value: "España" },
+      { label: "Cantidad por caja", value: "1" },
+      { label: "Alto caja", value: "30 cm" },
+      { label: "Ancho caja", value: "27 cm" },
+      { label: "Largo caja", value: "14 cm" },
+      { label: "DUN", value: "17016646005538" },
+      { label: "Peso bruto", value: "0.865 kg" },
+      { label: "Capas por pallet", value: "3" },
+      { label: "Cajas por capa", value: "6" },
+      { label: "Cajas por pallet", value: "108" },
+    ],
+    applications: [
+      "Baños institucionales de tráfico elevado",
+      "Espacios comerciales con uso intensivo",
+      "Compatible con Papel Higiénico Jumbo Tork Económico 4x500 mts, código 204331",
+    ],
+    safety: [
+      "Instalar según indicaciones del fabricante",
+      "Usar con productos compatibles del sistema ABS",
+    ],
+    technicalSheetUrl: "/fichas-tecnicas/ficha-tecnica-204999.pdf",
+    galleryImages: tork204999Gallery,
+  },
+  {
+    id: "tork-dispensador-toalla-rollo-autocut-lc-cl-204998",
+    name: "Dispensador Tork de Toalla en Rollo Autocut Linea clasic",
+    slug: "tork-dispensador-toalla-rollo-autocut-lc-cl-204998",
+    shortDescription:
+      "Dispensador Tork de toalla en rollo con palanca, línea Classic, sistema H23, ideal para espacios de tráfico medio y alto.",
+    description:
+      "Dispensador de toalla en rollo de palanca, conveniente para espacios de alto tráfico. Soporta toallas de hasta 310 metros y está fabricado con plástico de alta resistencia.",
+    image: tork204998View01,
+    imageFit: "contain",
+    line: "Higiene Institucional (Tork)",
+    type: "Dispensadores",
+    industry: ["Higiene Institucional"],
+    presentations: ["1 unidad"],
+    benefits: [
+      "Fabricado con plástico de alta resistencia para espacios muy concurridos",
+      "Palanca con tecnología Bio Kleen que inhibe el crecimiento de bacterias",
+      "Sistema de cierre y abertura con llave para evitar el robo de papel",
+    ],
+    specs: [
+      { label: "Código", value: "204998" },
+      { label: "Color", value: "Blanco" },
+      { label: "Línea", value: "Classic" },
+      { label: "Sistema", value: "H23" },
+      { label: "Material", value: "Plástico" },
+      { label: "Alto", value: "32.5 cm" },
+      { label: "Ancho", value: "31.7 cm" },
+      { label: "Largo", value: "21.8 cm" },
+      { label: "Peso neto", value: "2000 g" },
+      { label: "EAN 13", value: "7806540007966" },
+      { label: "Origen", value: "China" },
+      { label: "Cantidad por caja", value: "1" },
+      { label: "Alto caja", value: "33.0 cm" },
+      { label: "Ancho caja", value: "32.0 cm" },
+      { label: "Largo caja", value: "22.0 cm" },
+      { label: "Peso bruto", value: "1.7 kg" },
+      { label: "Capas pallet", value: "7" },
+      { label: "Bulto / capa", value: "12" },
+      { label: "Unidades por pallet", value: "84" },
+    ],
+    applications: [
+      "Espacios de tráfico medio y alto",
+      "Dispensación de toalla en rollo mediante palanca",
+      "Compatible con Toalla Jumbo Tork Económico 200HS 1X2, código 204291",
+    ],
+    safety: [
+      "Instalar según indicaciones del fabricante",
+      "Usar con productos compatibles del sistema H23",
+    ],
+    technicalSheetUrl: "/fichas-tecnicas/ficha-tecnica-204998.pdf",
+    galleryImages: tork204998Gallery,
+  },
 ];
 
 const unique = (values: string[]) => Array.from(new Set(values));
@@ -2463,5 +3059,9 @@ export const hasRealProductImage = (product: Product) =>
 
 export const productLines = unique(products.map((product) => product.line));
 export const productTypes = unique(products.map((product) => product.type));
-export const industries = unique(products.flatMap((product) => product.industry));
-export const presentations = unique(products.flatMap((product) => product.presentations));
+export const industries = unique(
+  products.flatMap((product) => product.industry),
+);
+export const presentations = unique(
+  products.flatMap((product) => product.presentations),
+);

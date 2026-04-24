@@ -184,7 +184,7 @@ const ProductDetailPage = () => {
             </div>
 
             <div className="flex flex-wrap gap-3">
-              {hasDirectTechnicalSheet ? (
+              {product.technicalSheetUrl && hasDirectTechnicalSheet ? (
                 <Button asChild size="lg" className="flex-1">
                   <a
                     href={resolvedTechnicalSheetUrl ?? undefined}
@@ -193,13 +193,13 @@ const ProductDetailPage = () => {
                     <Download className="w-4 h-4 mr-2" /> Descargar ficha técnica
                   </a>
                 </Button>
-              ) : (
+              ) : product.technicalSheetUrl ? (
                 <Button asChild size="lg" className="flex-1">
-                  <Link to={product.technicalSheetUrl ?? "/contacto"}>
+                  <Link to={product.technicalSheetUrl}>
                     <Download className="w-4 h-4 mr-2" /> Ver ficha técnica
                   </Link>
                 </Button>
-              )}
+              ) : null}
               <Button asChild size="lg" variant="outline" className="flex-1 border-accent text-accent hover:bg-accent hover:text-accent-foreground">
                 <Link to="/contacto">
                   <MessageCircle className="w-4 h-4 mr-2" /> Solicitar Cotización

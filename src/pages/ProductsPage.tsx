@@ -41,6 +41,7 @@ const marketingCategoryMatchers: Record<string, (product: Product) => boolean> =
 };
 
 const productNameCollator = new Intl.Collator("es", { sensitivity: "base" });
+const distributedProductLines = new Set(["Higiene Institucional (Tork)"]);
 
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
@@ -103,6 +104,13 @@ const ProductsPage = () => {
     });
 
     nextProducts.sort((firstProduct, secondProduct) => {
+      const firstProductIsDistributed = distributedProductLines.has(firstProduct.line);
+      const secondProductIsDistributed = distributedProductLines.has(secondProduct.line);
+
+      if (firstProductIsDistributed !== secondProductIsDistributed) {
+        return firstProductIsDistributed ? 1 : -1;
+      }
+
       const comparison = productNameCollator.compare(firstProduct.name, secondProduct.name);
       return sortOrder === "az" ? comparison : -comparison;
     });

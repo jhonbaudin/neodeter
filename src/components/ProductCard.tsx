@@ -25,13 +25,12 @@ const ProductCard = ({ product }: { product: Product }) => {
       onKeyDown={handleKeyDown}
       className="group cursor-pointer overflow-hidden rounded-[1.5rem] border border-border/80 bg-card shadow-card transition-all hover:-translate-y-1 hover:shadow-card-hover focus:outline-none focus:ring-2 focus:ring-primary/20"
     >
-      <div className="aspect-[16/9] overflow-hidden bg-muted">
+      <div className="aspect-[16/9] overflow-hidden bg-white">
         <img
           src={product.image}
           alt={product.name}
-          className={`h-full w-full transition-transform duration-300 group-hover:scale-105 ${
-            product.imageFit === "contain" ? "object-contain p-4" : "object-cover"
-          }`}
+          className={`h-full w-full transition-transform duration-300 group-hover:scale-105 ${product.imageFit === "contain" ? "object-contain p-4" : "object-cover"
+            }`}
         />
       </div>
       <div className="p-5">
