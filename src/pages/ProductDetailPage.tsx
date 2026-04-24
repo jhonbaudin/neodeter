@@ -113,7 +113,7 @@ const ProductDetailPage = () => {
       <div className="section-container pb-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           <div>
-            <div className={`overflow-hidden rounded-[1.75rem] border border-border/70 bg-muted aspect-[16/9] ${selectedGalleryImage.fit === "contain" ? "p-5 md:p-6" : ""}`}>
+            <div className={`overflow-hidden rounded-[1.75rem] border border-border/70 bg-white aspect-[16/9] ${selectedGalleryImage.fit === "contain" ? "p-5 md:p-6" : ""}`}>
               <img
                 src={selectedGalleryImage.src}
                 alt={selectedGalleryImage.alt}
@@ -128,11 +128,10 @@ const ProductDetailPage = () => {
                     key={`${image.src}-${index}`}
                     type="button"
                     onClick={() => setSelectedImageIndex(index)}
-                    className={`overflow-hidden rounded-2xl border bg-muted transition-all ${
-                      selectedImageIndex === index
+                    className={`overflow-hidden rounded-2xl border bg-muted transition-all ${selectedImageIndex === index
                         ? "border-primary ring-2 ring-primary/20"
                         : "border-border/70 hover:border-primary/35"
-                    }`}
+                      }`}
                     aria-label={`Ver imagen ${index + 1} de ${product.name}`}
                   >
                     <div className={`aspect-[4/3] ${image.fit === "contain" ? "p-3" : ""}`}>
@@ -171,11 +170,10 @@ const ProductDetailPage = () => {
                   <button
                     key={p}
                     onClick={() => setSelectedPresentation(i)}
-                    className={`px-4 py-2 rounded-md border text-sm font-medium transition-colors ${
-                      selectedPresentation === i
+                    className={`px-4 py-2 rounded-md border text-sm font-medium transition-colors ${selectedPresentation === i
                         ? "border-primary bg-primary text-primary-foreground"
                         : "border-border bg-card text-foreground hover:border-primary"
-                    }`}
+                      }`}
                   >
                     {p}
                   </button>
@@ -216,11 +214,10 @@ const ProductDetailPage = () => {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${
-                  activeTab === tab
+                className={`px-4 py-3 text-sm font-medium border-b-2 transition-colors ${activeTab === tab
                     ? "border-primary text-primary"
                     : "border-transparent text-muted-foreground hover:text-foreground"
-                }`}
+                  }`}
               >
                 {tab}
               </button>
