@@ -86,6 +86,7 @@ export const content = {
     "Desengrasantes",
     "Lavandería industrial",
     "Limpieza de superficies",
+    "Línea de Higiene Institucional",
   ],
   industries: [
     "Industria alimentaria",

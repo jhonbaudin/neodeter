@@ -38,10 +38,22 @@ const marketingCategoryMatchers: Record<string, (product: Product) => boolean> =
     /superficies|pisos|paredes|equipos|utensilios/i.test(
       `${product.shortDescription} ${product.description} ${product.applications.join(" ")}`,
     ),
+  "Línea de Higiene Institucional": (product) =>
+    product.line === "Higiene Institucional (Tork)" ||
+    product.industry.includes("Higiene Institucional"),
 };
 
 const productNameCollator = new Intl.Collator("es", { sensitivity: "base" });
 const distributedProductLines = new Set(["Higiene Institucional (Tork)"]);
+const productsPageDescription =
+  "Catálogo de detergentes industriales, desinfectantes, desengrasantes y productos químicos de limpieza para empresas en Perú.";
+const productsPageKeywords = [
+  "catálogo de productos químicos",
+  "detergentes industriales Perú",
+  "desinfectantes industriales",
+  "desengrasantes industriales",
+  "productos químicos de limpieza para empresas",
+];
 
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
@@ -127,6 +139,44 @@ const ProductsPage = () => {
     setSearchText("");
   };
 
+  const productsPageJsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Catálogo de productos químicos de limpieza industrial",
+      description: productsPageDescription,
+      url: `${content.seo.siteUrl}/productos`,
+      mainEntity: {
+        "@type": "ItemList",
+        numberOfItems: products.length,
+        itemListElement: products.map((product, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: product.name,
+          url: `${content.seo.siteUrl}/productos/${product.slug}`,
+        })),
+      },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Inicio",
+          item: content.seo.siteUrl,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Productos",
+          item: `${content.seo.siteUrl}/productos`,
+        },
+      ],
+    },
+  ];
+
   const FilterSection = ({
     title,
     options,
@@ -172,9 +222,11 @@ const ProductsPage = () => {
   return (
     <Layout>
       <Seo
-        title="Catálogo de productos"
-        description="Explora líneas de detergentes, desinfectantes y soluciones de limpieza industrial para distintas operaciones y sectores."
+        title="Catálogo de productos químicos de limpieza industrial"
+        description={productsPageDescription}
         path="/productos"
+        keywords={productsPageKeywords}
+        jsonLd={productsPageJsonLd}
       />
 
       <PageBanner
