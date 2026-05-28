@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import { ChevronDown, Search } from "lucide-react";
+import { ChevronDown, Download, Search } from "lucide-react";
 import Layout from "@/components/Layout";
 import PageBanner from "@/components/PageBanner";
 import ProductCard from "@/components/ProductCard";
 import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { content } from "@/content/content";
+import { resolvePublicUrl } from "@/lib/public-url";
 import { cn } from "@/lib/utils";
 import {
   industries,
@@ -57,6 +58,7 @@ const productsPageKeywords = [
 
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
+  const torkCatalogUrl = resolvePublicUrl(content.catalogs.tork.href);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedLine, setSelectedLine] = useState<string[]>([]);
   const [selectedType, setSelectedType] = useState<string[]>([]);
@@ -258,6 +260,23 @@ const ProductsPage = () => {
                 {category}
               </button>
             ))}
+          </div>
+          <div className="mt-6 flex flex-col gap-4 rounded-[1.5rem] border border-primary/12 bg-primary/5 p-5 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+                Línea Tork papelería
+              </p>
+              <h3 className="mt-2 text-lg font-bold text-foreground">{content.catalogs.tork.label}</h3>
+              <p className="mt-1 text-sm leading-6 text-muted-foreground">
+                Revisa el catálogo de papelería institucional Tork disponible para consulta.
+              </p>
+            </div>
+            <Button asChild variant="outline" className="shrink-0">
+              <a href={torkCatalogUrl} target="_blank" rel="noopener noreferrer">
+                <Download className="mr-2 h-4 w-4" />
+                Ver catálogo
+              </a>
+            </Button>
           </div>
         </div>
 

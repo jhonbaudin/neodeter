@@ -48,21 +48,21 @@ const CertificationsPage = () => {
   return (
     <Layout>
       <Seo
-        title="Calidad, respaldo y documentación técnica"
-        description="Conoce el enfoque de Neo Deter del Perú en control de calidad, respaldo documental y acompañamiento técnico para operaciones B2B."
-        path="/certificaciones"
+        title="Respaldo y asesoramiento"
+        description="Conoce el respaldo comercial, documentación técnica y asesoramiento especializado de Neo Deter del Perú para operaciones B2B."
+        path="/respaldo"
       />
 
       <PageBanner
-        title="Certificaciones y respaldo"
-        subtitle="Compromiso con la calidad, la documentación técnica y el respaldo comercial para distintas operaciones industriales."
+        title="Respaldo y asesoramiento"
+        subtitle="Compromiso con la calidad, la documentación técnica y el acompañamiento comercial para distintas operaciones industriales."
       />
 
       <div className="section-container py-12">
         <div className="mb-8 max-w-3xl">
           <span className="section-label">Respaldo comercial</span>
           <h2 className="mt-4 text-3xl font-bold text-foreground">
-            Calidad, soporte técnico y documentación para cada operación
+            Respaldo y asesoramiento para cada operación
           </h2>
           <p className="mt-4 text-muted-foreground leading-8">
             Compartimos los criterios con los que abordamos calidad, soporte técnico y respaldo comercial

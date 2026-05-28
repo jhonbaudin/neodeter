@@ -23,7 +23,7 @@ import ProductCard from "@/components/ProductCard";
 import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { companyHighlights, content } from "@/content/content";
-import { hasRealProductImage, products } from "@/data/products";
+import { products } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
 import { buildInquiryMailto } from "@/lib/contact";
 import industryLaundry from "@/assets/sectors/laundry/industrial-laundry.jpg";
@@ -123,9 +123,14 @@ const websiteJsonLd = {
   inLanguage: "es-PE",
 };
 
+const featuredProductIds = ["aquamatic-limon", "neogras-remover-plus", "biolavajilla"];
+
 const Index = () => {
   const { toast } = useToast();
-  const featuredProducts = products.filter(hasRealProductImage).slice(0, 3);
+  const featuredProducts = featuredProductIds.flatMap((productId) => {
+    const product = products.find(({ id }) => id === productId);
+    return product ? [product] : [];
+  });
   const [form, setForm] = useState({
     nombre: "",
     empresa: "",

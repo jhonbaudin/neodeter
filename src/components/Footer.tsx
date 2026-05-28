@@ -46,7 +46,7 @@ const Footer = () => {
             </div>
             <div className="mt-6 flex flex-wrap items-end gap-3">
               <Link
-                to="/certificaciones"
+                to="/respaldo"
                 className="inline-flex h-36 rounded-[1.25rem] bg-transparent p-0 transition-transform hover:scale-[1.02]"
               >
                 <img
@@ -56,7 +56,7 @@ const Footer = () => {
                 />
               </Link>
               <Link
-                to="/certificaciones"
+                to="/respaldo"
                 className="inline-flex h-36 rounded-[0.75rem] bg-transparent p-0 transition-transform hover:scale-[1.02]"
               >
                 <img
@@ -73,7 +73,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm text-primary-foreground/72">
               <li><Link to="/productos" className="hover:text-primary-foreground transition-colors">Catálogo</Link></li>
               <li><Link to="/industrias" className="hover:text-primary-foreground transition-colors">Industrias</Link></li>
-              <li><Link to="/certificaciones" className="hover:text-primary-foreground transition-colors">Certificaciones</Link></li>
+              <li><Link to="/respaldo" className="hover:text-primary-foreground transition-colors">Certificaciones</Link></li>
             </ul>
           </div>
 

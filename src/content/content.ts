@@ -136,7 +136,13 @@ export const content = {
     whatsappDisplay: "+51 995 003 664",
     whatsappBaseHref: "https://wa.me/51995003664",
     whatsappHref: `https://wa.me/51995003664?text=${whatsappMessage}`,
-    schedule: "Lunes a viernes de 8:00 a.m. a 6:00 p.m.",
+    schedule: "Lunes a viernes de 8:30 a.m. a 5:30 p.m.",
+  },
+  catalogs: {
+    tork: {
+      label: "Catálogo Tork Perú 2025",
+      href: "/catalogos/catalogo-tork-peru-2025.pdf",
+    },
   },
   socialLinks: [
     {

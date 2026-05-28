@@ -42,6 +42,8 @@ const ProductDetailPage = () => {
   const resolvedTechnicalSheetUrl = hasDirectTechnicalSheet && product.technicalSheetUrl
     ? resolvePublicUrl(product.technicalSheetUrl)
     : null;
+  const isTorkProduct = product.line === "Higiene Institucional (Tork)";
+  const torkCatalogUrl = resolvePublicUrl(content.catalogs.tork.href);
   const galleryImages = product.galleryImages?.length
     ? product.galleryImages
     : [{ src: product.image, alt: product.name, fit: (product.imageFit ?? "cover") as "cover" | "contain" }];
@@ -198,6 +200,13 @@ const ProductDetailPage = () => {
                   </Link>
                 </Button>
               ) : null}
+              {isTorkProduct && (
+                <Button asChild size="lg" variant="outline" className="flex-1">
+                  <a href={torkCatalogUrl} target="_blank" rel="noopener noreferrer">
+                    <Download className="w-4 h-4 mr-2" /> Ver catálogo Tork 2025
+                  </a>
+                </Button>
+              )}
               <Button asChild size="lg" variant="outline" className="flex-1 border-accent text-accent hover:bg-accent hover:text-accent-foreground">
                 <Link to="/contacto">
                   <MessageCircle className="w-4 h-4 mr-2" /> Solicitar Cotización

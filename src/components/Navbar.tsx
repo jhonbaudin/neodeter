@@ -10,7 +10,7 @@ const navLinks = [
   { label: "Productos", to: "/productos" },
   { label: "Industrias", to: "/industrias" },
   { label: "Nosotros", to: "/nosotros" },
-  { label: "Certificaciones", to: "/certificaciones" },
+  { label: "Respaldo", to: "/respaldo" },
   { label: "Contacto", to: "/contacto" },
 ];
 
@@ -29,7 +29,7 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 border-b border-border/80 bg-card/90 backdrop-blur-xl">
       <div className="section-container flex h-20 items-center justify-between gap-6">
         <Link to="/" className="shrink-0">
-          <BrandLogo imageClassName="h-11 md:h-12" />
+          <BrandLogo imageClassName="h-12 md:h-14" />
         </Link>
 
         <div className="hidden items-center gap-1 lg:flex">
@@ -37,11 +37,10 @@ const Navbar = () => {
             <Link
               key={link.to}
               to={link.to}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
-                isActiveLink(location.pathname, link.to)
+              className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${isActiveLink(location.pathname, link.to)
                   ? "bg-primary/8 text-primary"
                   : "text-muted-foreground hover:bg-primary/5 hover:text-foreground"
-              }`}
+                }`}
             >
               {link.label}
             </Link>
@@ -79,11 +78,10 @@ const Navbar = () => {
               <Link
                 key={link.to}
                 to={link.to}
-                className={`block rounded-xl px-4 py-3 text-sm font-medium ${
-                  isActiveLink(location.pathname, link.to)
+                className={`block rounded-xl px-4 py-3 text-sm font-medium ${isActiveLink(location.pathname, link.to)
                     ? "bg-primary/8 text-primary"
                     : "text-muted-foreground hover:bg-primary/5 hover:text-foreground"
-                }`}
+                  }`}
               >
                 {link.label}
               </Link>
