@@ -3132,6 +3132,9 @@ const normalizeCatalogs = (
   return nextCatalogs.length ? nextCatalogs : undefined;
 };
 
+const hasOwnField = (item: ProductMediaOverride, field: keyof ProductMediaOverride) =>
+  Object.prototype.hasOwnProperty.call(item, field);
+
 const applyProductMediaOverrides = (items: Product[]) => {
   const overridesById = new Map(
     productMediaOverrides
@@ -3151,11 +3154,17 @@ const applyProductMediaOverrides = (items: Product[]) => {
 
     return {
       ...product,
-      ...(image ? { image: resolvePublicUrl(image) } : {}),
+      ...(hasOwnField(override, "image")
+        ? { image: image ? resolvePublicUrl(image) : genericProductPlaceholder }
+        : {}),
       ...(imageFit ? { imageFit } : {}),
-      ...(technicalSheetUrl ? { technicalSheetUrl } : {}),
-      ...(galleryImages ? { galleryImages } : {}),
-      ...(catalogs ? { catalogs } : {}),
+      ...(hasOwnField(override, "technicalSheetUrl")
+        ? { technicalSheetUrl: technicalSheetUrl ?? null }
+        : {}),
+      ...(hasOwnField(override, "galleryImages")
+        ? { galleryImages: galleryImages ?? [] }
+        : {}),
+      ...(hasOwnField(override, "catalogs") ? { catalogs: catalogs ?? [] } : {}),
       ...(typeof override.showDefaultCatalogs === "boolean"
         ? { showDefaultCatalogs: override.showDefaultCatalogs }
         : {}),

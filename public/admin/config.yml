@@ -156,9 +156,11 @@ collections:
                   - label: Título
                     name: label
                     widget: string
+                    required: false
                   - label: PDF
                     name: href
                     widget: file
+                    required: false
                     media_library:
                       config:
                         multiple: false
@@ -172,9 +174,11 @@ collections:
                   - label: Imagen
                     name: src
                     widget: image
+                    required: false
                   - label: Texto alternativo
                     name: alt
                     widget: string
+                    required: false
                   - label: Ajuste de imagen
                     name: fit
                     widget: select
