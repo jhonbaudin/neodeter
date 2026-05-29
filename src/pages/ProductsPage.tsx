@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { ChevronDown, Download, Search } from "lucide-react";
+import BrandLogo from "@/components/BrandLogo";
 import Layout from "@/components/Layout";
 import PageBanner from "@/components/PageBanner";
 import ProductCard from "@/components/ProductCard";
@@ -9,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { content } from "@/content/content";
 import { resolvePublicUrl } from "@/lib/public-url";
 import { cn } from "@/lib/utils";
+import torkLogo from "@/assets/brand/tork-think-ahead-logo.png";
 import {
   industries,
   presentations,
@@ -58,7 +60,38 @@ const productsPageKeywords = [
 
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
-  const torkCatalogUrl = resolvePublicUrl(content.catalogs.tork.href);
+  const catalogCards = [
+    {
+      key: "hotels-restaurants",
+      label: content.catalogs.hotelsRestaurants.categoryLabel,
+      title: content.catalogs.hotelsRestaurants.label,
+      href: resolvePublicUrl(content.catalogs.hotelsRestaurants.href),
+      logo: <BrandLogo imageClassName="h-9" />,
+      logoContainerClassName: "bg-white",
+    },
+    {
+      key: "industrial-maintenance",
+      label: content.catalogs.industrialMaintenance.categoryLabel,
+      title: content.catalogs.industrialMaintenance.label,
+      href: resolvePublicUrl(content.catalogs.industrialMaintenance.href),
+      logo: <BrandLogo imageClassName="h-9" />,
+      logoContainerClassName: "bg-white",
+    },
+    {
+      key: "tork",
+      label: content.catalogs.tork.distributorLabel,
+      title: content.catalogs.tork.label,
+      href: resolvePublicUrl(content.catalogs.tork.href),
+      logo: (
+        <img
+          src={torkLogo}
+          alt="Tork Think Ahead"
+          className="max-h-12 w-auto max-w-full object-contain"
+        />
+      ),
+      logoContainerClassName: "bg-primary",
+    },
+  ];
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedLine, setSelectedLine] = useState<string[]>([]);
   const [selectedType, setSelectedType] = useState<string[]>([]);
@@ -261,22 +294,29 @@ const ProductsPage = () => {
               </button>
             ))}
           </div>
-          <div className="mt-6 flex flex-col gap-4 rounded-[1.5rem] border border-primary/12 bg-primary/5 p-5 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
-                Línea Tork papelería
-              </p>
-              <h3 className="mt-2 text-lg font-bold text-foreground">{content.catalogs.tork.label}</h3>
-              <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                Revisa el catálogo de papelería institucional Tork disponible para consulta.
-              </p>
-            </div>
-            <Button asChild variant="outline" className="shrink-0">
-              <a href={torkCatalogUrl} target="_blank" rel="noopener noreferrer">
-                <Download className="mr-2 h-4 w-4" />
-                Ver catálogo
-              </a>
-            </Button>
+          <div className="mt-5 flex flex-wrap gap-3">
+            {catalogCards.map((catalog) => (
+              <div
+                key={catalog.key}
+                className="flex w-full max-w-[17rem] flex-col gap-3 rounded-2xl border border-primary/12 bg-primary/5 p-4 sm:w-[17rem]"
+              >
+                <div className={cn("flex h-16 items-center justify-center rounded-xl px-4", catalog.logoContainerClassName)}>
+                  {catalog.logo}
+                </div>
+                <div className="flex flex-1 flex-col">
+                  <p className="text-[10px] font-semibold uppercase leading-4 tracking-[0.14em] text-primary">
+                    {catalog.label}
+                  </p>
+                  <h3 className="mt-1 text-sm font-bold leading-5 text-foreground">{catalog.title}</h3>
+                  <Button asChild variant="outline" size="sm" className="mt-3 w-full">
+                    <a href={catalog.href} download>
+                      <Download className="mr-2 h-4 w-4" />
+                      Descargar catálogo
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

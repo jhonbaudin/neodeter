@@ -2,11 +2,14 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
 import BrandLogo from "@/components/BrandLogo";
 import { content } from "@/content/content";
+import { resolvePublicUrl } from "@/lib/public-url";
+import torkLogo from "@/assets/brand/tork-think-ahead-logo.png";
 import carbonFootprintLogo from "@/assets/certifications/carbon-footprint-logo.png";
 import qualityCertificate from "@/assets/certifications/quality-certificate.webp";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const torkCatalogUrl = resolvePublicUrl(content.catalogs.tork.href);
   const socialIcons = {
     Instagram,
     Facebook,
@@ -65,6 +68,21 @@ const Footer = () => {
                   className="h-full w-auto object-contain"
                 />
               </Link>
+              <a
+                href={torkCatalogUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-36 w-40 flex-col items-center justify-center rounded-[1.25rem] border border-white/14 bg-white/8 px-4 py-5 text-center transition-transform hover:scale-[1.02]"
+              >
+                <img
+                  src={torkLogo}
+                  alt="Tork Think Ahead"
+                  className="max-h-16 w-auto max-w-full object-contain"
+                />
+                <span className="mt-3 text-[10px] font-semibold uppercase leading-4 tracking-[0.14em] text-primary-foreground/72">
+                  {content.catalogs.tork.distributorLabel}
+                </span>
+              </a>
             </div>
           </div>
 
