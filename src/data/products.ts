@@ -1,3 +1,5 @@
+import productMediaContent from "@/content/product-media.json";
+import { resolvePublicUrl } from "@/lib/public-url";
 import aquamaticLimon from "@/assets/products/neodeter/aquamatic-limon.jpg";
 import aquamaticLimonFront from "@/assets/products/neodeter/aquamatic-limon/aquamatic-limon-front.webp";
 import aquamaticLimonAngleLeft from "@/assets/products/neodeter/aquamatic-limon/aquamatic-limon-angle-left.webp";
@@ -62,6 +64,11 @@ import torkXpressnapView05 from "@/assets/products/tork/xpressnap/tork-xpressnap
 import torkXpressnapView06 from "@/assets/products/tork/xpressnap/tork-xpressnap-view-06.webp";
 import torkXpressnapView07 from "@/assets/products/tork/xpressnap/tork-xpressnap-view-07.webp";
 
+export interface ProductCatalog {
+  label: string;
+  href: string;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -79,6 +86,8 @@ export interface Product {
   applications: string[];
   safety: string[];
   technicalSheetUrl?: string | null;
+  catalogs?: ProductCatalog[];
+  showDefaultCatalogs?: boolean;
   galleryImages?: {
     src: string;
     alt: string;
@@ -314,7 +323,7 @@ const torkXpressnapGallery: Product["galleryImages"] = [
   },
 ];
 
-export const products: Product[] = [
+const baseProducts: Product[] = [
   {
     id: "acerac-plus-10",
     name: "Acerac Plus 10",
@@ -3051,6 +3060,110 @@ export const products: Product[] = [
     galleryImages: tork204998Gallery,
   },
 ];
+
+type ProductMediaOverride = {
+  id?: string;
+  image?: string | null;
+  imageFit?: string | null;
+  technicalSheetUrl?: string | null;
+  catalogs?: {
+    label?: string | null;
+    href?: string | null;
+  }[];
+  showDefaultCatalogs?: boolean;
+  galleryImages?: {
+    src?: string | null;
+    alt?: string | null;
+    fit?: string | null;
+  }[];
+};
+
+const productMediaOverrides =
+  (productMediaContent as { products?: ProductMediaOverride[] }).products ?? [];
+
+const trimValue = (value?: string | null) => {
+  if (typeof value !== "string") return undefined;
+
+  const trimmed = value.trim();
+  return trimmed.length ? trimmed : undefined;
+};
+
+const normalizeImageFit = (value?: string | null): Product["imageFit"] =>
+  value === "cover" || value === "contain" ? value : undefined;
+
+const normalizeGalleryImages = (
+  images?: ProductMediaOverride["galleryImages"],
+): Product["galleryImages"] | undefined => {
+  if (!Array.isArray(images)) return undefined;
+
+  const nextImages = images
+    .map((image) => {
+      const src = trimValue(image.src);
+      if (!src) return null;
+
+      return {
+        src: resolvePublicUrl(src),
+        alt: trimValue(image.alt) ?? "Imagen de producto",
+        fit: normalizeImageFit(image.fit),
+      };
+    })
+    .filter((image): image is NonNullable<typeof image> => Boolean(image));
+
+  return nextImages.length ? nextImages : undefined;
+};
+
+const normalizeCatalogs = (
+  catalogs?: ProductMediaOverride["catalogs"],
+): ProductCatalog[] | undefined => {
+  if (!Array.isArray(catalogs)) return undefined;
+
+  const nextCatalogs = catalogs
+    .map((catalog) => {
+      const href = trimValue(catalog.href);
+      if (!href) return null;
+
+      return {
+        label: trimValue(catalog.label) ?? "Catálogo del producto",
+        href,
+      };
+    })
+    .filter((catalog): catalog is ProductCatalog => Boolean(catalog));
+
+  return nextCatalogs.length ? nextCatalogs : undefined;
+};
+
+const applyProductMediaOverrides = (items: Product[]) => {
+  const overridesById = new Map(
+    productMediaOverrides
+      .filter((override) => trimValue(override.id))
+      .map((override) => [trimValue(override.id), override] as const),
+  );
+
+  return items.map((product) => {
+    const override = overridesById.get(product.id);
+    if (!override) return product;
+
+    const image = trimValue(override.image);
+    const imageFit = normalizeImageFit(override.imageFit);
+    const technicalSheetUrl = trimValue(override.technicalSheetUrl);
+    const galleryImages = normalizeGalleryImages(override.galleryImages);
+    const catalogs = normalizeCatalogs(override.catalogs);
+
+    return {
+      ...product,
+      ...(image ? { image: resolvePublicUrl(image) } : {}),
+      ...(imageFit ? { imageFit } : {}),
+      ...(technicalSheetUrl ? { technicalSheetUrl } : {}),
+      ...(galleryImages ? { galleryImages } : {}),
+      ...(catalogs ? { catalogs } : {}),
+      ...(typeof override.showDefaultCatalogs === "boolean"
+        ? { showDefaultCatalogs: override.showDefaultCatalogs }
+        : {}),
+    };
+  });
+};
+
+export const products: Product[] = applyProductMediaOverrides(baseProducts);
 
 const unique = (values: string[]) => Array.from(new Set(values));
 

@@ -8,6 +8,7 @@ import ProductCard from "@/components/ProductCard";
 import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { content } from "@/content/content";
+import { resolveEditableMedia, siteMedia } from "@/content/site-media";
 import { resolvePublicUrl } from "@/lib/public-url";
 import { cn } from "@/lib/utils";
 import torkLogo from "@/assets/brand/tork-think-ahead-logo.png";
@@ -60,6 +61,7 @@ const productsPageKeywords = [
 
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
+  const productsTorkLogo = resolveEditableMedia(siteMedia.logos.tork, torkLogo);
   const catalogCards = [
     {
       key: "hotels-restaurants",
@@ -84,7 +86,7 @@ const ProductsPage = () => {
       href: resolvePublicUrl(content.catalogs.tork.href),
       logo: (
         <img
-          src={torkLogo}
+          src={productsTorkLogo}
           alt="Tork Think Ahead"
           className="max-h-12 w-auto max-w-full object-contain"
         />

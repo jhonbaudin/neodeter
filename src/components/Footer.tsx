@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Twitter } from "lucide-react";
 import BrandLogo from "@/components/BrandLogo";
 import { content } from "@/content/content";
+import { resolveEditableMedia, siteMedia } from "@/content/site-media";
 import { resolvePublicUrl } from "@/lib/public-url";
 import torkLogo from "@/assets/brand/tork-think-ahead-logo.png";
 import carbonFootprintLogo from "@/assets/certifications/carbon-footprint-logo.png";
@@ -10,6 +11,15 @@ import qualityCertificate from "@/assets/certifications/quality-certificate.webp
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const torkCatalogUrl = resolvePublicUrl(content.catalogs.tork.href);
+  const footerTorkLogo = resolveEditableMedia(siteMedia.logos.tork, torkLogo);
+  const footerCarbonFootprintLogo = resolveEditableMedia(
+    siteMedia.logos.carbonFootprint,
+    carbonFootprintLogo,
+  );
+  const footerQualityCertificate = resolveEditableMedia(
+    siteMedia.logos.qualityCertificate,
+    qualityCertificate,
+  );
   const socialIcons = {
     Instagram,
     Facebook,
@@ -53,7 +63,7 @@ const Footer = () => {
                 className="inline-flex h-36 rounded-[1.25rem] bg-transparent p-0 transition-transform hover:scale-[1.02]"
               >
                 <img
-                  src={qualityCertificate}
+                  src={footerQualityCertificate}
                   alt="Certificado de calidad"
                   className="h-full w-auto object-contain"
                 />
@@ -63,7 +73,7 @@ const Footer = () => {
                 className="inline-flex h-36 rounded-[0.75rem] bg-transparent p-0 transition-transform hover:scale-[1.02]"
               >
                 <img
-                  src={carbonFootprintLogo}
+                  src={footerCarbonFootprintLogo}
                   alt="Huella de carbono Perú"
                   className="h-full w-auto object-contain"
                 />
@@ -75,7 +85,7 @@ const Footer = () => {
                 className="inline-flex h-36 w-40 flex-col items-center justify-center rounded-[1.25rem] border border-white/14 bg-white/8 px-4 py-5 text-center transition-transform hover:scale-[1.02]"
               >
                 <img
-                  src={torkLogo}
+                  src={footerTorkLogo}
                   alt="Tork Think Ahead"
                   className="max-h-16 w-auto max-w-full object-contain"
                 />

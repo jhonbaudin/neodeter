@@ -10,6 +10,7 @@ import Layout from "@/components/Layout";
 import PageBanner from "@/components/PageBanner";
 import Seo from "@/components/Seo";
 import { content } from "@/content/content";
+import { resolveEditableMedia, siteMedia } from "@/content/site-media";
 import standImage from "@/assets/company/events/stand-booth.jpeg";
 import teamImage from "@/assets/company/team/team-office.jpeg";
 
@@ -63,6 +64,9 @@ const splitStatement = (statement: string) => {
 };
 
 const AboutPage = () => {
+  const aboutTeamImage = resolveEditableMedia(siteMedia.company.team, teamImage);
+  const aboutStandImage = resolveEditableMedia(siteMedia.company.stand, standImage);
+
   return (
     <Layout>
       <Seo
@@ -111,10 +115,10 @@ const AboutPage = () => {
 
           <div className="grid gap-6">
             <div className="surface-panel overflow-hidden">
-              <img src={teamImage} alt="Equipo de Neo Deter del Peru" className="h-72 w-full object-cover" />
+              <img src={aboutTeamImage} alt="Equipo de Neo Deter del Peru" className="h-72 w-full object-cover" />
             </div>
             <div className="surface-panel overflow-hidden">
-              <img src={standImage} alt="Presencia comercial de Neo Deter del Peru" className="h-72 w-full object-cover" />
+              <img src={aboutStandImage} alt="Presencia comercial de Neo Deter del Peru" className="h-72 w-full object-cover" />
             </div>
           </div>
         </section>

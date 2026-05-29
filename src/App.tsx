@@ -12,6 +12,12 @@ import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+const adminPath = `${import.meta.env.BASE_URL}admin/index.html`;
+
+const AdminRedirect = () => {
+  window.location.replace(adminPath);
+  return null;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -29,6 +35,7 @@ const App = () => (
         <Route path="/respaldo" element={<CertificationsPage />} />
         <Route path="/certificaciones" element={<Navigate to="/respaldo" replace />} />
         <Route path="/contacto" element={<ContactPage />} />
+        <Route path="/admin" element={<AdminRedirect />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

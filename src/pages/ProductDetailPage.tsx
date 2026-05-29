@@ -42,12 +42,12 @@ const ProductDetailPage = () => {
   const resolvedTechnicalSheetUrl = hasDirectTechnicalSheet && product.technicalSheetUrl
     ? resolvePublicUrl(product.technicalSheetUrl)
     : null;
-  const productCatalogs =
+  const defaultProductCatalogs =
     product.line === "Higiene Institucional (Tork)"
       ? [
         {
           label: "Catálogo Tork 2026",
-          href: resolvePublicUrl(content.catalogs.tork.href),
+          href: content.catalogs.tork.href,
         },
       ]
       : [
@@ -56,7 +56,7 @@ const ProductDetailPage = () => {
           ? [
             {
               label: "Catálogo hoteles y restaurantes",
-              href: resolvePublicUrl(content.catalogs.hotelsRestaurants.href),
+              href: content.catalogs.hotelsRestaurants.href,
             },
           ]
           : []),
@@ -65,11 +65,22 @@ const ProductDetailPage = () => {
           ? [
             {
               label: "Catálogo mantenimiento industrial",
-              href: resolvePublicUrl(content.catalogs.industrialMaintenance.href),
+              href: content.catalogs.industrialMaintenance.href,
             },
           ]
           : []),
       ];
+  const productCatalogs = Array.from(
+    new Map(
+      [
+        ...(product.catalogs ?? []),
+        ...(product.showDefaultCatalogs === false ? [] : defaultProductCatalogs),
+      ].map((catalog) => {
+        const href = resolvePublicUrl(catalog.href);
+        return [href, { ...catalog, href }] as const;
+      }),
+    ).values(),
+  );
   const galleryImages = product.galleryImages?.length
     ? product.galleryImages
     : [{ src: product.image, alt: product.name, fit: (product.imageFit ?? "cover") as "cover" | "contain" }];

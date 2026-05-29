@@ -1,0 +1,1209 @@
+{
+  "products": [
+    {
+      "id": "acerac-plus-10",
+      "name": "Acerac Plus 10",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/acerac-plus-10.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "acerac-plus-30",
+      "name": "Acerac Plus 30",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/acerac-plus-30.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "acerac-plus-60",
+      "name": "Acerac Plus 60",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/acerac-plus-60.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "aquadeter",
+      "name": "Aquadeter",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/aquadeter.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "aquamatic-limon",
+      "name": "Aquamatic Limón",
+      "image": "/uploads/productos/neodeter/aquamatic-limon.jpg",
+      "imageFit": "cover",
+      "technicalSheetUrl": "",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/aquamatic-limon.jpg",
+          "alt": "Aquamatic Limón en operación de lavandería comercial e industrial",
+          "fit": "cover"
+        },
+        {
+          "src": "/uploads/productos/neodeter/aquamatic-limon/aquamatic-limon-front.webp",
+          "alt": "Aquamatic Limón vista frontal",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/aquamatic-limon/aquamatic-limon-angle-left.webp",
+          "alt": "Aquamatic Limón vista lateral izquierda",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/aquamatic-limon/aquamatic-limon-angle-right.webp",
+          "alt": "Aquamatic Limón vista lateral derecha",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/aquamatic-limon/aquamatic-limon-packshot.webp",
+          "alt": "Aquamatic Limón packshot de presentación",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "antibac-lac",
+      "name": "Antibac LAC",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/antibac-lac.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "aromaclin",
+      "name": "Aromaclin",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/aromaclin.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "biolavajilla-h7",
+      "name": "Biolavajilla H7",
+      "image": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/biolavajilla-h7.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-01.webp",
+          "alt": "Biolavajilla vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-02.webp",
+          "alt": "Biolavajilla vista 2",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-03.webp",
+          "alt": "Biolavajilla vista 3",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-04.webp",
+          "alt": "Biolavajilla vista 4",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-05.webp",
+          "alt": "Biolavajilla vista 5",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-06.webp",
+          "alt": "Biolavajilla vista 6",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-07.webp",
+          "alt": "Biolavajilla vista 7",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-08.webp",
+          "alt": "Biolavajilla vista 8",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-09.webp",
+          "alt": "Biolavajilla vista 9",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-10.webp",
+          "alt": "Biolavajilla vista 10",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-11.webp",
+          "alt": "Biolavajilla vista 11",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-12.webp",
+          "alt": "Biolavajilla vista 12",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "biolavajilla",
+      "name": "Biolavajilla",
+      "image": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/biolavajilla.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-01.webp",
+          "alt": "Biolavajilla vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-02.webp",
+          "alt": "Biolavajilla vista 2",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-03.webp",
+          "alt": "Biolavajilla vista 3",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-04.webp",
+          "alt": "Biolavajilla vista 4",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-05.webp",
+          "alt": "Biolavajilla vista 5",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-06.webp",
+          "alt": "Biolavajilla vista 6",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-07.webp",
+          "alt": "Biolavajilla vista 7",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-08.webp",
+          "alt": "Biolavajilla vista 8",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-09.webp",
+          "alt": "Biolavajilla vista 9",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-10.webp",
+          "alt": "Biolavajilla vista 10",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-11.webp",
+          "alt": "Biolavajilla vista 11",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/biolavajilla/biolavajilla-view-12.webp",
+          "alt": "Biolavajilla vista 12",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "deter-400e",
+      "name": "Deter 400E",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/deter-400e.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "formula-2929",
+      "name": "Fórmula 2929",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/formula-2929.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "hipoclorito-de-sodio-5",
+      "name": "Hipoclorito de Sodio 5%",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/hipoclorito-de-sodio-5.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "lavajilla",
+      "name": "Lavajilla",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/lavajilla.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "dishmatic",
+      "name": "Dishmatic",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/dishmatic.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "mezsol-dl-nc",
+      "name": "Mezsol DL-NC",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/mezsol-dl-nc.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neoacid-3339",
+      "name": "NeoAcid 3339",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neoacid-3339.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neoacid-p-84",
+      "name": "NeoAcid P-84",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neoacid-p-84.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neoacid-se",
+      "name": "NeoAcid SE",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neoacid-se.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neoalkadeter",
+      "name": "NeoAlkadeter",
+      "image": "/uploads/productos/neodeter/neoalkadeter/neoalkadeter-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neoalkadeter.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neoalkadeter/neoalkadeter-view-01.webp",
+          "alt": "NeoAlkadeter presentación comercial",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "neobleach-5",
+      "name": "Neobleach 5",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neobleach-5.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neocar-plus",
+      "name": "NeoCar Plus",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neocar-plus.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neofoam-clo2-remover",
+      "name": "NeoFoam ClO2 Remover",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neofoam-clo2-remover.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neofrut-kv",
+      "name": "NeoFrut KV",
+      "image": "/uploads/productos/neodeter/neofrut-family/neofrut-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neofrut-kv.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neofrut-family/neofrut-view-01.webp",
+          "alt": "NeoFrut familia vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neofrut-family/neofrut-view-02.webp",
+          "alt": "NeoFrut familia vista 2",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "neofrut-kb-l2",
+      "name": "NeoFrut KB-L2",
+      "image": "/uploads/productos/neodeter/neofrut-family/neofrut-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neofrut-kb-l2.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neofrut-family/neofrut-view-01.webp",
+          "alt": "NeoFrut familia vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neofrut-family/neofrut-view-02.webp",
+          "alt": "NeoFrut familia vista 2",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "neogel-tc",
+      "name": "NeoGel TC",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neogel-tc.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neoglass",
+      "name": "NeoGlass",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neoglass.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neogras-bm-20",
+      "name": "NeoGras BM-20",
+      "image": "/uploads/productos/neodeter/neogras-family/neogras-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neogras-bm-20.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-01.webp",
+          "alt": "NeoGras familia vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-02.webp",
+          "alt": "NeoGras familia vista 2",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-03.webp",
+          "alt": "NeoGras familia vista 3",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-04.webp",
+          "alt": "NeoGras familia vista 4",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-05.webp",
+          "alt": "NeoGras familia vista 5",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "neoclean",
+      "name": "NeoClean",
+      "image": "/uploads/productos/neodeter/neoxol-c-30ap/neoxol-c-30ap-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neoclean.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neoclean-lavanda",
+      "name": "NeoClean Lavanda",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neoclean-lavanda.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neoclean-68-ct",
+      "name": "NeoClean 68-CT",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neoclean-68-ct.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neocloram",
+      "name": "NeoCloram",
+      "image": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neocloram.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-01.webp",
+          "alt": "NeoCloram familia 4 kg vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-02.webp",
+          "alt": "NeoCloram familia 4 kg vista 2",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-03.webp",
+          "alt": "NeoCloram familia 4 kg vista 3",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-04.webp",
+          "alt": "NeoCloram familia 4 kg vista 4",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-05.webp",
+          "alt": "NeoCloram familia 4 kg vista 5",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-20kg-view-01.webp",
+          "alt": "NeoCloram familia 20 kg vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-20kg-view-02.webp",
+          "alt": "NeoCloram familia 20 kg vista 2",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "neocloram-4460",
+      "name": "NEOCLORAM 4460",
+      "image": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neocloram-4460.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-01.webp",
+          "alt": "NeoCloram familia 4 kg vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-02.webp",
+          "alt": "NeoCloram familia 4 kg vista 2",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-03.webp",
+          "alt": "NeoCloram familia 4 kg vista 3",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-04.webp",
+          "alt": "NeoCloram familia 4 kg vista 4",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-05.webp",
+          "alt": "NeoCloram familia 4 kg vista 5",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-20kg-view-01.webp",
+          "alt": "NeoCloram familia 20 kg vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-20kg-view-02.webp",
+          "alt": "NeoCloram familia 20 kg vista 2",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "neoclor-dx5",
+      "name": "NeoClor DX5",
+      "image": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neoclor-dx5.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-01.webp",
+          "alt": "NeoClor DX familia vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-02.webp",
+          "alt": "NeoClor DX familia vista 2",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-03.webp",
+          "alt": "NeoClor DX familia vista 3",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "neoclor-dx-10",
+      "name": "NeoClor DX 10",
+      "image": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neoclor-dx-10.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-01.webp",
+          "alt": "NeoClor DX familia vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-02.webp",
+          "alt": "NeoClor DX familia vista 2",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-03.webp",
+          "alt": "NeoClor DX familia vista 3",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "neoclor-sh",
+      "name": "NeoClor SH",
+      "image": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neoclor-sh.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-01.webp",
+          "alt": "NeoClor DX familia vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-02.webp",
+          "alt": "NeoClor DX familia vista 2",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-03.webp",
+          "alt": "NeoClor DX familia vista 3",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "neodegreaser",
+      "name": "NeoDegreaser",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neodegreaser.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neodegreaser-7030",
+      "name": "NEODEGREASER 7030",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neodegreaser-7030.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neocloram-fp",
+      "name": "Neocloram FP",
+      "image": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neocloram-fp.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-01.webp",
+          "alt": "NeoCloram familia 4 kg vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-02.webp",
+          "alt": "NeoCloram familia 4 kg vista 2",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-03.webp",
+          "alt": "NeoCloram familia 4 kg vista 3",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-04.webp",
+          "alt": "NeoCloram familia 4 kg vista 4",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-4kg-view-05.webp",
+          "alt": "NeoCloram familia 4 kg vista 5",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-20kg-view-01.webp",
+          "alt": "NeoCloram familia 20 kg vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neocloram-family/neocloram-family-20kg-view-02.webp",
+          "alt": "NeoCloram familia 20 kg vista 2",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "neoclor-dx-plus",
+      "name": "Neoclor DX Plus",
+      "image": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neoclor-dx-plus.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-01.webp",
+          "alt": "NeoClor DX familia vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-02.webp",
+          "alt": "NeoClor DX familia vista 2",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neoclor-dx-family/neoclor-dx-view-03.webp",
+          "alt": "NeoClor DX familia vista 3",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "neogras-forte",
+      "name": "NeoGras Forte",
+      "image": "/uploads/productos/neodeter/neogras-family/neogras-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neogras-forte.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-01.webp",
+          "alt": "NeoGras familia vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-02.webp",
+          "alt": "NeoGras familia vista 2",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-03.webp",
+          "alt": "NeoGras familia vista 3",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-04.webp",
+          "alt": "NeoGras familia vista 4",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-05.webp",
+          "alt": "NeoGras familia vista 5",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "neogras-rp-se",
+      "name": "NEOGRAS RP SE",
+      "image": "/uploads/productos/neodeter/neogras-family/neogras-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neogras-rp-se.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-01.webp",
+          "alt": "NeoGras familia vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-02.webp",
+          "alt": "NeoGras familia vista 2",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-03.webp",
+          "alt": "NeoGras familia vista 3",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-04.webp",
+          "alt": "NeoGras familia vista 4",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-05.webp",
+          "alt": "NeoGras familia vista 5",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "neorol-3",
+      "name": "NeoRol 3",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neorol-3.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neorol-ct",
+      "name": "NeoRol CT",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neorol-ct.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neorol-cabinet",
+      "name": "NeoRol Cabinet",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neorol-cabinet.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neogras-remover-plus",
+      "name": "Neogras Remover Plus",
+      "image": "/uploads/productos/neodeter/neogras-family/neogras-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neogras-remover-plus.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-01.webp",
+          "alt": "NeoGras familia vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-02.webp",
+          "alt": "NeoGras familia vista 2",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-03.webp",
+          "alt": "NeoGras familia vista 3",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-04.webp",
+          "alt": "NeoGras familia vista 4",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-05.webp",
+          "alt": "NeoGras familia vista 5",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "neosanit-gq",
+      "name": "NeoSanit GQ",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neosanit-gq.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neosep-clo2",
+      "name": "NeoSep ClO2",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neosep-clo2.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neosilicom",
+      "name": "NeoSilicom",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neosilicom.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "neoxol-c-30ap",
+      "name": "NeoXol C-30AP",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/neoxol-c-30ap.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neoxol-c-30ap/neoxol-c-30ap-view-01.webp",
+          "alt": "NeoXol C-30AP vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neoxol-c-30ap/neoxol-c-30ap-view-02.webp",
+          "alt": "NeoXol C-30AP vista 2",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neoxol-c-30ap/neoxol-c-30ap-view-03.webp",
+          "alt": "NeoXol C-30AP vista 3",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "perfumador",
+      "name": "Perfumador",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/perfumador.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "pineclin",
+      "name": "Pineclin",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/pineclin.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "qx",
+      "name": "QX",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/qx.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "ramton",
+      "name": "Ramton",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/ramton.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "suavideter-especial",
+      "name": "Suavideter Especial",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/suavideter-especial.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "suavideter",
+      "name": "Suavideter",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/suavideter.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "supergras",
+      "name": "SuperGras",
+      "image": "/uploads/productos/neodeter/neogras-family/neogras-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/supergras.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-01.webp",
+          "alt": "NeoGras familia vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-02.webp",
+          "alt": "NeoGras familia vista 2",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-03.webp",
+          "alt": "NeoGras familia vista 3",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-04.webp",
+          "alt": "NeoGras familia vista 4",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/neogras-family/neogras-view-05.webp",
+          "alt": "NeoGras familia vista 5",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "trimet",
+      "name": "Trimet",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/trimet.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "deterlac",
+      "name": "Deterlac",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/deterlac.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "shampo-alfombras",
+      "name": "Shampo Alfombras",
+      "image": "/uploads/productos/neodeter/not-found.png",
+      "imageFit": "cover",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/shampo-alfombras.pdf",
+      "showDefaultCatalogs": true
+    },
+    {
+      "id": "ss-industrial",
+      "name": "SS Industrial",
+      "image": "/uploads/productos/neodeter/ss-industrial/ss-industrial-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/ss-industrial.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/neodeter/ss-industrial/ss-industrial-view-01.webp",
+          "alt": "SS Industrial vista 1",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/neodeter/ss-industrial/ss-industrial-view-02.webp",
+          "alt": "SS Industrial vista 2",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "tork-toalla-jumbo-economico-hoja-simple-204291",
+      "name": "Toalla Jumbo Tork Económico Hoja Simple",
+      "image": "/uploads/productos/tork/204291/tork-204291-view-02.png",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/tork-universal-dispensadores.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/tork/204291/tork-204291-view-02.png",
+          "alt": "Toalla Jumbo Tork Económico Hoja Simple 204291",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "tork-papel-higienico-jumbo-economico-hoja-simple-204331",
+      "name": "Papel Higiénico Jumbo Tork Económico Hoja Simple",
+      "image": "/uploads/productos/tork/204331/tork-204331-view-02.png",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/tork-universal-dispensadores.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/tork/204331/tork-204331-view-02.png",
+          "alt": "Papel Higiénico Jumbo Tork Económico Hoja Simple 204331",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "tork-papel-higienico-bajo-metrajeo-hoja-doble-204337",
+      "name": "Tork Papel Higiénico Bajo Metrajeo Hoja Doble",
+      "image": "/uploads/productos/tork/204337/tork-204337-view-02.png",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/tork-universal-dispensadores.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/tork/204337/tork-204337-view-02.png",
+          "alt": "Tork Papel Higiénico Bajo Metrajeo Hoja Doble 204337",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "tork-xpressnap-dispensador",
+      "name": "Tork Xpressnap",
+      "image": "/uploads/productos/tork/xpressnap/tork-xpressnap-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/tork/xpressnap/tork-xpressnap-view-01.webp",
+          "alt": "Dispensador Tork Xpressnap vista frontal",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/tork/xpressnap/tork-xpressnap-view-02.webp",
+          "alt": "Dispensador Tork Xpressnap detalle superior",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/tork/xpressnap/tork-xpressnap-view-03.webp",
+          "alt": "Dispensador Tork Xpressnap vista posterior",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/tork/xpressnap/tork-xpressnap-view-04.webp",
+          "alt": "Dispensador Tork Xpressnap vista frontal elevada",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/tork/xpressnap/tork-xpressnap-view-05.webp",
+          "alt": "Dispensador Tork Xpressnap vista posterior alternativa",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/tork/xpressnap/tork-xpressnap-view-06.webp",
+          "alt": "Dispensador Tork Xpressnap salida de servilletas",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/tork/xpressnap/tork-xpressnap-view-07.webp",
+          "alt": "Dispensador Tork Xpressnap interior",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "tork-xpressnap-servilleta-natural-200501",
+      "name": "Tork Xpressnap Servilleta Natural",
+      "image": "/uploads/productos/tork/200501/tork-200501-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/tork/200501/tork-200501-view-01.webp",
+          "alt": "Tork Xpressnap Servilleta Natural 200501",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "tork-xpressnap-servilleta-blanca-200211",
+      "name": "Tork Xpressnap Servilleta Blanca",
+      "image": "/uploads/productos/tork/200211/tork-200211-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/tork/200211/tork-200211-view-01.webp",
+          "alt": "Tork Xpressnap Servilleta Blanca 200211",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "tork-dispensador-papel-jumbo-lc-204695",
+      "name": "Dispensador Tork de papel jumbo, linea clasic",
+      "image": "/uploads/productos/tork/204695/tork-204695-view-01.webp",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/ficha-tecnica-204695.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/tork/204695/tork-204695-view-01.webp",
+          "alt": "Dispensador Tork 204695 vista frontal",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/tork/204695/tork-204695-view-02.webp",
+          "alt": "Dispensador Tork 204695 detalle frontal",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/tork/204695/tork-204695-usage-01.jpeg",
+          "alt": "Baño institucional para dispensador Tork 204695",
+          "fit": "cover"
+        },
+        {
+          "src": "/uploads/productos/tork/204695/tork-204695-compatible-01.jpeg",
+          "alt": "Papel higiénico compatible Tork 204331",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "tork-dispensador-papel-jumbo-lc-model2-204999",
+      "name": "Dispensador Tork de papel jumbo, linea clasic modelo 2",
+      "image": "/uploads/productos/tork/204999/tork-204999-view-01.jpeg",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/ficha-tecnica-204999.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/tork/204999/tork-204999-view-01.jpeg",
+          "alt": "Dispensador Tork 204999 vista frontal",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/tork/204999/tork-204999-usage-01.jpeg",
+          "alt": "Baño institucional para dispensador Tork 204999",
+          "fit": "cover"
+        },
+        {
+          "src": "/uploads/productos/tork/204999/tork-204999-compatible-01.jpeg",
+          "alt": "Papel higiénico compatible Tork 204331",
+          "fit": "contain"
+        }
+      ]
+    },
+    {
+      "id": "tork-dispensador-toalla-rollo-autocut-lc-cl-204998",
+      "name": "Dispensador Tork de Toalla en Rollo Autocut Linea clasic",
+      "image": "/uploads/productos/tork/204998/tork-204998-view-01.jpeg",
+      "imageFit": "contain",
+      "technicalSheetUrl": "/uploads/productos/fichas-tecnicas/ficha-tecnica-204998.pdf",
+      "showDefaultCatalogs": true,
+      "galleryImages": [
+        {
+          "src": "/uploads/productos/tork/204998/tork-204998-view-01.jpeg",
+          "alt": "Dispensador Tork 204998 vista frontal",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/tork/204998/tork-204998-view-02.jpeg",
+          "alt": "Dispensador Tork 204998 detalle de palanca",
+          "fit": "contain"
+        },
+        {
+          "src": "/uploads/productos/tork/204998/tork-204998-detail-01.jpeg",
+          "alt": "Dispensador Tork 204998 detalle interno",
+          "fit": "contain"
+        }
+      ]
+    }
+  ]
+}

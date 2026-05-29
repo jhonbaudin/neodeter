@@ -1,0 +1,24 @@
+{
+  "logos": {
+    "brand": "/uploads/general/logos/logo.webp",
+    "tork": "/uploads/general/logos/tork-think-ahead-logo.png",
+    "carbonFootprint": "/uploads/general/logos/carbon-footprint-logo.png",
+    "qualityCertificate": "/uploads/general/logos/quality-certificate.webp"
+  },
+  "company": {
+    "team": "/uploads/general/company/team-office.jpeg",
+    "stand": "/uploads/general/company/stand-booth.jpeg"
+  },
+  "sectors": {
+    "industrialLaundry": "/uploads/general/sectors/laundry/industrial-laundry.jpg",
+    "laundryIndustrialMachines": "/uploads/general/sectors/laundry/laundry-industrial-machines.webp",
+    "laundryCommercialLifestyle": "/uploads/general/sectors/laundry/laundry-commercial-lifestyle.jpeg",
+    "industrialFloorCleaning": "/uploads/general/sectors/maintenance/industrial-floor-cleaning.jpeg",
+    "industrialPlantVisit": "/uploads/general/sectors/maintenance/industrial-plant-visit.jpeg",
+    "aquamaticLimon": "/uploads/general/sectors/products/aquamatic-limon.jpg",
+    "neoclorDxPlusUsage": "/uploads/general/sectors/products/neoclor-dx-plus-usage.webp",
+    "neocloramFpUsage": "/uploads/general/sectors/products/neocloram-fp-usage.webp",
+    "neograsRemoverPlusUsage": "/uploads/general/sectors/products/neogras-remover-plus-usage.webp",
+    "neograsKitchenCleaning": "/uploads/general/sectors/food/neogras-kitchen-cleaning.webp"
+  }
+}

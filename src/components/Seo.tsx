@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import logo from "@/assets/brand/logo.webp";
 import { content } from "@/content/content";
+import { resolveEditableMedia, siteMedia } from "@/content/site-media";
 
 interface SeoProps {
   title?: string;
@@ -64,7 +65,8 @@ const Seo = ({
     const resolvedDescription = description ?? content.seo.defaultDescription;
     const resolvedPath = path ?? window.location.pathname;
     const canonicalUrl = getAbsoluteUrl(resolvedPath);
-    const socialImage = getAbsoluteUrl(image ?? logo);
+    const defaultSocialImage = resolveEditableMedia(siteMedia.logos.brand, logo);
+    const socialImage = getAbsoluteUrl(image ?? defaultSocialImage);
     const robots = noIndex ? "noindex, nofollow" : "index, follow";
     const keywordValue = [...content.seo.keywords, ...(keywords ?? [])].join(", ");
 

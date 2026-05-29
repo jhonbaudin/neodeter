@@ -1,0 +1,245 @@
+backend:
+  name: github
+  repo: jhonbaudin/neodeter
+  branch: main
+
+publish_mode: simple
+site_url: https://neodeter.pe
+display_url: https://neodeter.pe
+logo_url: /neodeter/favicon-57.png
+locale: es
+
+media_folder: public/uploads
+public_folder: /uploads
+
+collections:
+  - name: medios_generales
+    label: Medios generales
+    media_folder: public/uploads/general
+    public_folder: /uploads/general
+    files:
+      - name: medios_generales
+        label: Logos e imágenes del sitio
+        file: src/content/site-media.json
+        format: json
+        fields:
+          - label: Logos y sellos
+            name: logos
+            widget: object
+            fields:
+              - label: Logo principal
+                name: brand
+                widget: image
+                required: false
+              - label: Logo Tork
+                name: tork
+                widget: image
+                required: false
+              - label: Sello huella de carbono
+                name: carbonFootprint
+                widget: image
+                required: false
+              - label: Certificado de calidad
+                name: qualityCertificate
+                widget: image
+                required: false
+          - label: Empresa
+            name: company
+            widget: object
+            fields:
+              - label: Foto de equipo
+                name: team
+                widget: image
+                required: false
+              - label: Foto comercial / stand
+                name: stand
+                widget: image
+                required: false
+          - label: Sectores y aplicaciones
+            name: sectors
+            widget: object
+            fields:
+              - label: Lavandería industrial
+                name: industrialLaundry
+                widget: image
+                required: false
+              - label: Equipos de lavandería industrial
+                name: laundryIndustrialMachines
+                widget: image
+                required: false
+              - label: Lavandería comercial
+                name: laundryCommercialLifestyle
+                widget: image
+                required: false
+              - label: Limpieza de pisos industriales
+                name: industrialFloorCleaning
+                widget: image
+                required: false
+              - label: Visita a planta industrial
+                name: industrialPlantVisit
+                widget: image
+                required: false
+              - label: Aquamatic Limón
+                name: aquamaticLimon
+                widget: image
+                required: false
+              - label: Uso NeoClor DX Plus
+                name: neoclorDxPlusUsage
+                widget: image
+                required: false
+              - label: Uso NeoCloram FP
+                name: neocloramFpUsage
+                widget: image
+                required: false
+              - label: Uso Neogras Remover Plus
+                name: neograsRemoverPlusUsage
+                widget: image
+                required: false
+              - label: Limpieza de cocina industrial
+                name: neograsKitchenCleaning
+                widget: image
+                required: false
+
+  - name: productos_media
+    label: Medios de productos
+    media_folder: public/uploads/productos
+    public_folder: /uploads/productos
+    files:
+      - name: productos_media
+        label: Imágenes, fichas y catálogos por producto
+        file: src/content/product-media.json
+        format: json
+        fields:
+          - label: Productos
+            name: products
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - label: Nombre visible
+                name: name
+                widget: string
+              - label: ID interno del producto (no cambiar)
+                name: id
+                widget: string
+              - label: Imagen principal
+                name: image
+                widget: image
+                required: false
+              - label: Ajuste de imagen principal
+                name: imageFit
+                widget: select
+                required: false
+                options:
+                  - label: Cubrir el espacio
+                    value: cover
+                  - label: Contener imagen completa
+                    value: contain
+              - label: Ficha técnica PDF
+                name: technicalSheetUrl
+                widget: file
+                required: false
+                media_library:
+                  config:
+                    multiple: false
+              - label: Mostrar catálogos por rubro
+                name: showDefaultCatalogs
+                widget: boolean
+                default: true
+              - label: Catálogos específicos del producto
+                name: catalogs
+                widget: list
+                required: false
+                collapsed: true
+                summary: "{{fields.label}}"
+                fields:
+                  - label: Título
+                    name: label
+                    widget: string
+                  - label: PDF
+                    name: href
+                    widget: file
+                    media_library:
+                      config:
+                        multiple: false
+              - label: Galería de imágenes
+                name: galleryImages
+                widget: list
+                required: false
+                collapsed: true
+                summary: "{{fields.alt}}"
+                fields:
+                  - label: Imagen
+                    name: src
+                    widget: image
+                  - label: Texto alternativo
+                    name: alt
+                    widget: string
+                  - label: Ajuste de imagen
+                    name: fit
+                    widget: select
+                    required: false
+                    options:
+                      - label: Cubrir el espacio
+                        value: cover
+                      - label: Contener imagen completa
+                        value: contain
+
+  - name: catalogos
+    label: Catálogos
+    media_folder: public/catalogos
+    public_folder: /catalogos
+    files:
+      - name: catalogos_productos
+        label: Catálogos de productos
+        file: src/content/catalogs.json
+        format: json
+        fields:
+          - label: Hoteles y restaurantes
+            name: hotelsRestaurants
+            widget: object
+            fields:
+              - label: Título
+                name: label
+                widget: string
+              - label: Etiqueta
+                name: categoryLabel
+                widget: string
+              - label: PDF
+                name: href
+                widget: file
+                media_library:
+                  config:
+                    multiple: false
+          - label: Mantenimiento industrial
+            name: industrialMaintenance
+            widget: object
+            fields:
+              - label: Título
+                name: label
+                widget: string
+              - label: Etiqueta
+                name: categoryLabel
+                widget: string
+              - label: PDF
+                name: href
+                widget: file
+                media_library:
+                  config:
+                    multiple: false
+          - label: Tork
+            name: tork
+            widget: object
+            fields:
+              - label: Título
+                name: label
+                widget: string
+              - label: Etiqueta
+                name: distributorLabel
+                widget: string
+              - label: PDF
+                name: href
+                widget: file
+                media_library:
+                  config:
+                    multiple: false

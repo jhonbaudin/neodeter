@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { content } from "@/content/content";
+import { resolveEditableMedia, siteMedia } from "@/content/site-media";
 import logo from "@/assets/brand/logo.webp";
 
 interface BrandLogoProps {
@@ -11,7 +12,7 @@ interface BrandLogoProps {
 const BrandLogo = ({ className, imageClassName, framed = false }: BrandLogoProps) => {
   const image = (
     <img
-      src={logo}
+      src={resolveEditableMedia(siteMedia.logos.brand, logo)}
       alt={content.company.name}
       className={cn("h-10 w-auto object-contain", imageClassName)}
     />

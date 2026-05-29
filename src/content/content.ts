@@ -1,3 +1,5 @@
+import catalogs from "./catalogs.json";
+
 const whatsappMessage = encodeURIComponent(
   "Hola, quisiera recibir asesoría comercial sobre sus soluciones químicas industriales.",
 );
@@ -138,23 +140,7 @@ export const content = {
     whatsappHref: `https://wa.me/51995003664?text=${whatsappMessage}`,
     schedule: "Lunes a viernes de 8:30 a.m. a 5:30 p.m.",
   },
-  catalogs: {
-    hotelsRestaurants: {
-      label: "Catálogo sector hoteles y restaurantes",
-      href: "/catalogos/catalogo-sector-hoteles-restaurantes.pdf",
-      categoryLabel: "Catálogo propio Neo Deter",
-    },
-    industrialMaintenance: {
-      label: "Catálogo mantenimiento industrial",
-      href: "/catalogos/catalogo-mantenimiento-industrial.pdf",
-      categoryLabel: "Catálogo propio Neo Deter",
-    },
-    tork: {
-      label: "Catálogo Tork Perú 2026 - Línea Papelería",
-      href: "/catalogos/catalogo-tork-peru-2026.pdf",
-      distributorLabel: "Distribuidores oficiales de Tork",
-    },
-  },
+  catalogs,
   socialLinks: [
     {
       label: "Instagram",
