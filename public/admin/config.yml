@@ -15,7 +15,7 @@ public_folder: /neodeter/uploads
 collections:
   - name: medios_generales
     label: Medios generales
-    media_folder: public/uploads/general
+    media_folder: /public/uploads/general
     public_folder: /neodeter/uploads/general
     files:
       - name: medios_generales
@@ -102,7 +102,7 @@ collections:
 
   - name: productos_media
     label: Medios de productos
-    media_folder: public/uploads/productos
+    media_folder: /public/uploads/productos
     public_folder: /neodeter/uploads/productos
     files:
       - name: productos_media
@@ -187,8 +187,8 @@ collections:
 
   - name: catalogos
     label: Catálogos
-    media_folder: public/catalogos
-    public_folder: /catalogos
+    media_folder: /public/catalogos
+    public_folder: /neodeter/catalogos
     files:
       - name: catalogos_productos
         label: Catálogos de productos
