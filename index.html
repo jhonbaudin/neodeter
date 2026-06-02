@@ -30,12 +30,13 @@
       name="twitter:description"
       content="Fabricacion y comercializacion de productos quimicos para limpieza, desinfeccion, lavanderia y mantenimiento industrial en Peru."
     />
-    <script type="module" crossorigin src="/neodeter/assets/index-DBck28Uo.js"></script>
+    <script type="module" crossorigin src="/neodeter/assets/index-CyjyEUK1.js"></script>
     <link rel="stylesheet" crossorigin href="/neodeter/assets/index-CUvtJmRP.css">
   </head>
 
   <body>
     <div id="root"></div>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
       (function () {
         var redirectPath = sessionStorage.getItem("redirectPath");
@@ -51,6 +52,31 @@
         if (redirectPath !== currentPath) {
           window.history.replaceState(null, "", redirectPath);
         }
+      })();
+
+      (function () {
+        if (!window.netlifyIdentity) {
+          return;
+        }
+
+        var getAdminPath = function () {
+          var pathname = window.location.pathname;
+          var basePath = pathname.endsWith("/")
+            ? pathname
+            : pathname.slice(0, pathname.lastIndexOf("/") + 1);
+
+          return basePath + "admin/";
+        };
+
+        window.netlifyIdentity.on("init", function (user) {
+          if (user) {
+            return;
+          }
+
+          window.netlifyIdentity.on("login", function () {
+            window.location.replace(getAdminPath());
+          });
+        });
       })();
     </script>
   </body>
