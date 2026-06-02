@@ -6,6 +6,11 @@ export const resolvePublicUrl = (path: string) => {
   const normalizedBase = baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
   const normalizedBasePath = normalizedBase.replace(/^\/+|\/+$/g, "");
   const normalizedPath = path.replace(/^\/+/, "");
+  const legacyBasePath = "neodeter";
+
+  if (!normalizedBasePath && normalizedPath.startsWith(`${legacyBasePath}/`)) {
+    return `/${normalizedPath.slice(legacyBasePath.length + 1)}`;
+  }
 
   if (
     normalizedBasePath &&

@@ -1,0 +1,51 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  VITE_APP_BASE_PATH = "/"
+
+[[redirects]]
+  from = "/neodeter/admin"
+  to = "/admin/"
+  status = 301
+
+[[redirects]]
+  from = "/neodeter/admin/*"
+  to = "/admin/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/neodeter/uploads/*"
+  to = "/uploads/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/neodeter/catalogos/*"
+  to = "/catalogos/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/neodeter/fichas-tecnicas/*"
+  to = "/fichas-tecnicas/:splat"
+  status = 200
+
+[[redirects]]
+  from = "/neodeter"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/neodeter/"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/neodeter/*"
+  to = "/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
