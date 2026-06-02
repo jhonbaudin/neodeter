@@ -15,11 +15,7 @@
       "imageFit": "contain",
       "technicalSheetUrl": "/neodeter/uploads/productos/fichas-tecnicas/acerac-plus-10.pdf",
       "showDefaultCatalogs": true,
-      "galleryImages": [
-        {
-          "src": "/uploads/productos/imagen2.png"
-        }
-      ]
+      "galleryImages": []
     },
     {
       "id": "acerac-plus-60",
