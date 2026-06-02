@@ -1,8 +1,10 @@
 import catalogs from "./catalogs.json";
-
-const whatsappMessage = encodeURIComponent(
-  "Hola, quisiera recibir asesoría comercial sobre sus soluciones químicas industriales.",
-);
+import {
+  buildPhoneHref,
+  buildWhatsAppBaseHref,
+  buildWhatsAppHref,
+  contactSettings,
+} from "./contact-settings";
 const officeMapQuery = encodeURIComponent(
   "Av. Caminos del Inca 1089 Of. 201, Surco, Lima, Perú",
 );
@@ -131,14 +133,17 @@ export const content = {
         href: "tel:+5113723822",
       },
     ],
-    phoneDisplay: "+51 995 003 664",
-    phoneHref: "tel:+51995003664",
-    email: "atencionalcliente@neodeter.pe",
-    emailHref: "mailto:atencionalcliente@neodeter.pe",
-    whatsappDisplay: "+51 995 003 664",
-    whatsappBaseHref: "https://wa.me/51995003664",
-    whatsappHref: `https://wa.me/51995003664?text=${whatsappMessage}`,
-    schedule: "Lunes a viernes de 8:30 a.m. a 5:30 p.m.",
+    phoneDisplay: contactSettings.phoneNumber,
+    phoneHref: buildPhoneHref(contactSettings.phoneNumber),
+    email: contactSettings.publicEmail,
+    emailHref: `mailto:${contactSettings.publicEmail}`,
+    whatsappDisplay: contactSettings.whatsappNumber,
+    whatsappBaseHref: buildWhatsAppBaseHref(contactSettings.whatsappNumber),
+    whatsappHref: buildWhatsAppHref(
+      contactSettings.whatsappNumber,
+      contactSettings.whatsappMessage,
+    ),
+    schedule: contactSettings.schedule,
   },
   catalogs,
   socialLinks: [

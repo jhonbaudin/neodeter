@@ -26,7 +26,7 @@ import { companyHighlights, content } from "@/content/content";
 import { sectorImages } from "@/content/sector-images";
 import { products } from "@/data/products";
 import { useToast } from "@/hooks/use-toast";
-import { buildInquiryMailto } from "@/lib/contact";
+import { submitInquiry } from "@/lib/contact";
 
 const solutionVisuals = {
   "Lavandería Industrial": {
@@ -118,6 +118,7 @@ const featuredProductIds = ["aquamatic-limon", "neogras-remover-plus", "biolavaj
 
 const Index = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const featuredProducts = featuredProductIds.flatMap((productId) => {
     const product = products.find(({ id }) => id === productId);
     return product ? [product] : [];
@@ -130,14 +131,29 @@ const Index = () => {
     mensaje: "",
   });
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    window.location.href = buildInquiryMailto(form, "Solicitud comercial desde neodeter.pe");
-    toast({
-      title: "Abriremos tu correo",
-      description: "Preparamos tu solicitud para que la envíes directamente al equipo comercial.",
-    });
-    setForm({ nombre: "", empresa: "", email: "", telefono: "", mensaje: "" });
+    setIsSubmitting(true);
+
+    try {
+      await submitInquiry(form, "Solicitud comercial desde neodeter.pe");
+      toast({
+        title: "Solicitud enviada",
+        description:
+          "Tu solicitud fue enviada al equipo comercial y será atendida a la brevedad.",
+      });
+      setForm({ nombre: "", empresa: "", email: "", telefono: "", mensaje: "" });
+    } catch (error) {
+      toast({
+        title: "No se pudo enviar la solicitud",
+        description:
+          error instanceof Error
+            ? error.message
+            : "Intenta nuevamente en unos minutos o contáctanos por WhatsApp.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -457,8 +473,15 @@ const Index = () => {
                 </div>
 
                 <div className="flex flex-wrap gap-3">
-                  <Button type="submit" size="lg" variant="cta" className="flex-1 min-w-[220px]">
-                    <Send className="mr-2 h-4 w-4" /> Enviar por correo
+                  <Button
+                    type="submit"
+                    size="lg"
+                    variant="cta"
+                    className="flex-1 min-w-[220px]"
+                    disabled={isSubmitting}
+                  >
+                    <Send className="mr-2 h-4 w-4" />
+                    {isSubmitting ? "Enviando..." : "Enviar solicitud"}
                   </Button>
                   <Button asChild size="lg" variant="outline" className="flex-1 min-w-[220px]">
                     <a href={content.contact.whatsappHref} target="_blank" rel="noopener noreferrer">
@@ -467,7 +490,7 @@ const Index = () => {
                   </Button>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Al enviar, se abrirá tu correo con la consulta prellenada para que puedas revisarla antes de enviarla.
+                  Tu solicitud se enviará directamente al equipo comercial configurado en el sitio.
                 </p>
               </form>
             </div>

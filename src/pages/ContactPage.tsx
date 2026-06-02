@@ -6,10 +6,11 @@ import Seo from "@/components/Seo";
 import { Button } from "@/components/ui/button";
 import { content } from "@/content/content";
 import { useToast } from "@/hooks/use-toast";
-import { buildInquiryMailto } from "@/lib/contact";
+import { submitInquiry } from "@/lib/contact";
 
 const ContactPage = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({
     nombre: "",
     empresa: "",
@@ -18,7 +19,7 @@ const ContactPage = () => {
     acceptedTerms: false,
   });
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     if (!form.acceptedTerms) {
       toast({
@@ -28,12 +29,33 @@ const ContactPage = () => {
       return;
     }
 
-    window.location.href = buildInquiryMailto(form, "Consulta desde neodeter.pe");
-    toast({
-      title: "Abriremos tu correo",
-      description: "Preparamos tu consulta para que la envíes directamente al equipo comercial.",
-    });
-    setForm({ nombre: "", empresa: "", email: "", mensaje: "", acceptedTerms: false });
+    setIsSubmitting(true);
+
+    try {
+      await submitInquiry(form, "Consulta desde neodeter.pe");
+      toast({
+        title: "Consulta enviada",
+        description:
+          "Tu mensaje fue enviado al equipo comercial y será atendido a la brevedad.",
+      });
+      setForm({
+        nombre: "",
+        empresa: "",
+        email: "",
+        mensaje: "",
+        acceptedTerms: false,
+      });
+    } catch (error) {
+      toast({
+        title: "No se pudo enviar la consulta",
+        description:
+          error instanceof Error
+            ? error.message
+            : "Intenta nuevamente en unos minutos o contáctanos por WhatsApp.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -122,8 +144,9 @@ const ContactPage = () => {
                 </p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <Button type="submit" size="lg">
-                  <Send className="mr-2 h-4 w-4" /> Enviar por correo
+                <Button type="submit" size="lg" disabled={isSubmitting}>
+                  <Send className="mr-2 h-4 w-4" />
+                  {isSubmitting ? "Enviando..." : "Enviar consulta"}
                 </Button>
                 <Button asChild type="button" size="lg" variant="outline">
                   <a href={content.contact.whatsappHref} target="_blank" rel="noopener noreferrer">
@@ -132,7 +155,7 @@ const ContactPage = () => {
                 </Button>
               </div>
               <p className="text-xs text-muted-foreground">
-                Al enviar, se abrirá tu correo con la consulta prellenada para que puedas revisarla antes de enviarla.
+                Tu consulta se enviará directamente al equipo comercial configurado en el sitio.
               </p>
             </form>
           </div>

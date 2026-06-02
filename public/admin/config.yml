@@ -246,3 +246,36 @@ collections:
                 media_library:
                   config:
                     multiple: false
+
+  - name: contacto
+    label: Contacto
+    files:
+      - name: configuracion_contacto
+        label: Configuración de contacto
+        file: src/content/contact-settings.json
+        format: json
+        fields:
+          - label: Correo público visible
+            name: publicEmail
+            widget: string
+          - label: Correos que reciben formularios
+            name: inboxEmails
+            widget: list
+            field:
+              label: Correo receptor
+              name: email
+              widget: string
+          - label: Celular comercial visible
+            name: phoneNumber
+            widget: string
+            hint: "Ejemplo: +51 995 003 664"
+          - label: Número de WhatsApp
+            name: whatsappNumber
+            widget: string
+            hint: "Ejemplo: +51 995 003 664"
+          - label: Mensaje base de WhatsApp
+            name: whatsappMessage
+            widget: text
+          - label: Horario de atención
+            name: schedule
+            widget: string
