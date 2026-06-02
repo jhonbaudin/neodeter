@@ -3,13 +3,13 @@
     {
       "id": "acerac-plus-10",
       "name": "Acerac Plus 10",
-      "image": "/uploads/productos/imagen1.png",
+      "image": "",
       "imageFit": "contain",
       "technicalSheetUrl": "/neodeter/uploads/productos/fichas-tecnicas/acerac-plus-10.pdf",
       "showDefaultCatalogs": true,
       "galleryImages": [
         {
-          "src": "/uploads/productos/imagen2.png"
+          "src": ""
         }
       ]
     },
