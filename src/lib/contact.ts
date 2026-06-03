@@ -36,7 +36,9 @@ export const submitInquiry = async (
   data: InquiryData,
   subjectPrefix = "Consulta comercial",
 ) => {
-  const response = await fetch("/.netlify/functions/contact", {
+  const contactEndpoint =
+    import.meta.env.VITE_CONTACT_ENDPOINT || "/.netlify/functions/contact";
+  const response = await fetch(contactEndpoint, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
