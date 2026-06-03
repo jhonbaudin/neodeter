@@ -5,11 +5,8 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write
-
 concurrency:
-  group: pages-deploy
+  group: hosting-deploy
   cancel-in-progress: true
 
 jobs:
@@ -32,15 +29,17 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          VITE_APP_BASE_PATH: /neodeter/
         run: npm run build
 
-      - name: Configure git
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
-          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-
-      - name: Deploy
-        run: npm run deploy -- -u "GitHub Actions <actions@github.com>" -x
+      - name: Deploy dist to hosting
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          server-dir: ${{ secrets.FTP_REMOTE_PATH }}
+          local-dir: ./dist/
+          dangerous-clean-slate: true
