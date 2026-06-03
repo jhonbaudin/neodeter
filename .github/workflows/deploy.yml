@@ -40,7 +40,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
-          server-dir: ${{ secrets.FTP_REMOTE_PATH }}
+          server-dir: public_html/
           local-dir: ./dist/
           port: 21
-          dangerous-clean-slate: true
+          state-name: .ftp-deploy-sync-state-neodeter-root.json
