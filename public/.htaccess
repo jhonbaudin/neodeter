@@ -2,7 +2,9 @@ DirectoryIndex index.html
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /neodeter/
+  RewriteBase /
+
+  RewriteRule ^fichas-tecnicas/(.*)$ uploads/productos/fichas-tecnicas/$1 [R=301,L]
 
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d

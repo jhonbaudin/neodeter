@@ -7,9 +7,22 @@ export const resolvePublicUrl = (path: string) => {
   const normalizedBasePath = normalizedBase.replace(/^\/+|\/+$/g, "");
   const normalizedPath = path.replace(/^\/+/, "");
   const legacyBasePath = "neodeter";
+  const legacyTechnicalSheetPath = "fichas-tecnicas/";
+
+  const normalizePath = (value: string) => {
+    const withoutLegacyBase = value.startsWith(`${legacyBasePath}/`)
+      ? value.slice(legacyBasePath.length + 1)
+      : value;
+
+    if (withoutLegacyBase.startsWith(legacyTechnicalSheetPath)) {
+      return `uploads/productos/${withoutLegacyBase}`;
+    }
+
+    return withoutLegacyBase;
+  };
 
   if (!normalizedBasePath && normalizedPath.startsWith(`${legacyBasePath}/`)) {
-    return `/${normalizedPath.slice(legacyBasePath.length + 1)}`;
+    return `/${normalizePath(normalizedPath)}`;
   }
 
   if (
@@ -20,5 +33,5 @@ export const resolvePublicUrl = (path: string) => {
     return `/${normalizedPath}`;
   }
 
-  return `${normalizedBase}${normalizedPath}`;
+  return `${normalizedBase}${normalizePath(normalizedPath)}`;
 };

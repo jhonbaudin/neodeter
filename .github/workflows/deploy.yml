@@ -30,7 +30,7 @@ jobs:
 
       - name: Build
         env:
-          VITE_APP_BASE_PATH: /neodeter/
+          VITE_APP_BASE_PATH: /
         run: npm run build
 
       - name: Deploy dist to hosting
@@ -42,4 +42,5 @@ jobs:
           protocol: ftps
           server-dir: ${{ secrets.FTP_REMOTE_PATH }}
           local-dir: ./dist/
+          port: 21
           dangerous-clean-slate: true

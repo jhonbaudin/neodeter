@@ -5,17 +5,17 @@ backend:
 publish_mode: simple
 site_url: https://neodeter.pe
 display_url: https://neodeter.pe
-logo_url: /neodeter/favicon-57.png
+logo_url: /favicon-57.png
 locale: es
 
 media_folder: public/uploads
-public_folder: /neodeter/uploads
+public_folder: /uploads
 
 collections:
   - name: medios_generales
     label: Medios generales
     media_folder: /public/uploads/general
-    public_folder: /neodeter/uploads/general
+    public_folder: /uploads/general
     files:
       - name: medios_generales
         label: Logos e imágenes del sitio
@@ -102,7 +102,7 @@ collections:
   - name: productos_media
     label: Medios de productos
     media_folder: /public/uploads/productos
-    public_folder: /neodeter/uploads/productos
+    public_folder: /uploads/productos
     files:
       - name: productos_media
         label: Imágenes, fichas y catálogos por producto
@@ -138,6 +138,8 @@ collections:
                 name: technicalSheetUrl
                 widget: file
                 required: false
+                media_folder: /public/uploads/productos/fichas-tecnicas
+                public_folder: /uploads/productos/fichas-tecnicas
                 media_library:
                   config:
                     multiple: false
@@ -191,7 +193,7 @@ collections:
   - name: catalogos
     label: Catálogos
     media_folder: /public/catalogos
-    public_folder: /neodeter/catalogos
+    public_folder: /catalogos
     files:
       - name: catalogos_productos
         label: Catálogos de productos

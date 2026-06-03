@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-const configuredBasePath = process.env.VITE_APP_BASE_PATH?.trim() || "/neodeter/";
+const configuredBasePath = process.env.VITE_APP_BASE_PATH?.trim() || "/";
 const basePath = configuredBasePath.startsWith("/")
   ? configuredBasePath
   : `/${configuredBasePath}`;
