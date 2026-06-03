@@ -120,6 +120,7 @@ const Footer = () => {
                   WhatsApp <ArrowUpRight className="h-3.5 w-3.5" />
                 </a>
               </li>
+              <li><Link to="/admin" className="hover:text-primary-foreground transition-colors">Admin</Link></li>
             </ul>
           </div>
 
