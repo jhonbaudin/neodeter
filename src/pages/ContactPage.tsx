@@ -15,6 +15,7 @@ const ContactPage = () => {
     nombre: "",
     empresa: "",
     email: "",
+    telefono: "",
     mensaje: "",
     acceptedTerms: false,
   });
@@ -42,6 +43,7 @@ const ContactPage = () => {
         nombre: "",
         empresa: "",
         email: "",
+        telefono: "",
         mensaje: "",
         acceptedTerms: false,
       });
@@ -110,6 +112,16 @@ const ContactPage = () => {
                   value={form.email}
                   onChange={(event) => setForm({ ...form, email: event.target.value })}
                   required
+                />
+              </div>
+              <div>
+                <label className="mb-1 block text-sm font-medium text-foreground">Teléfono</label>
+                <input
+                  className="w-full rounded-2xl border border-input bg-background px-4 py-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10"
+                  type="tel"
+                  placeholder="+51 999 999 999"
+                  value={form.telefono}
+                  onChange={(event) => setForm({ ...form, telefono: event.target.value })}
                 />
               </div>
               <div>
