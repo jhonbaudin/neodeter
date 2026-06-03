@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main
+  site_domain: neodeter.netlify.app
 
 publish_mode: simple
 site_url: https://neodeter.pe

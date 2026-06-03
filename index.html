@@ -57,6 +57,10 @@
           return;
         }
 
+        window.netlifyIdentity.init({
+          APIUrl: "https://neodeter.netlify.app/.netlify/identity",
+        });
+
         var getAdminPath = function () {
           var pathname = window.location.pathname;
           var basePath = pathname.endsWith("/")
